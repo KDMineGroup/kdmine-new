@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحلیل ریسک | کاویان توسعه معدن</title>
+    <meta name="description" content="شناسایی و ارزیابی ریسک‌های فنی، اقتصادی و عملیاتی پروژه‌های معدنی">
+    <link rel="icon" type="image/svg+xml" href="https://cdn.grapesjs.com/workspaces/cmgvbwak408ja13nsemkia83b/assets/7e057c43-5d96-4c3a-a8fc-8bd5f6589a93__kavianpremiumbadgelogo.svg">
+    
+    <style>
+        @font-face {
+            font-family: 'B Nazanin';
+            src: local('B Nazanin'), local('BNazanin');
+            font-display: swap;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'B Nazanin', Tahoma, sans-serif;
+            line-height: 1.8;
+            color: #1a202c;
+            background: #ffffff;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #991b1b, #dc2626);
+            color: white;
+            padding: 100px 40px 60px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .header p {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .breadcrumb {
+            margin-top: 30px;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+        
+        .section-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-intro h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: #1a202c;
+            margin-bottom: 20px;
+        }
+        
+        .section-intro p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: #4a5568;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+        
+        .service-card {
+            background: linear-gradient(135deg, #fef2f2, #fee2e2);
+            padding: 35px;
+            border-radius: 15px;
+            border: 2px solid #fecaca;
+            transition: all 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(220, 38, 38, 0.2);
+            border-color: #dc2626;
+        }
+        
+        .service-icon {
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 20px rgba(220, 38, 38, 0.3);
+        }
+        
+        .service-card h3 {
+            font-size: 1.4rem;
+            color: #1a202c;
+            margin-bottom: 15px;
+        }
+        
+        .service-card p {
+            color: #4a5568;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        .service-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .service-card li {
+            padding: 8px 0;
+            padding-right: 25px;
+            position: relative;
+            color: #4a5568;
+            font-size: 0.95rem;
+        }
+        
+        .service-card li::before {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            color: #dc2626;
+            font-weight: bold;
+        }
+        
+        .risk-categories-section {
+            background: #f8fafc;
+            padding: 80px 40px;
+        }
+        
+        .categories-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .category-card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .category-card h4 {
+            font-size: 1.3rem;
+            color: #1a202c;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .category-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .category-card li {
+            padding: 8px 0;
+            padding-right: 22px;
+            position: relative;
+            color: #4a5568;
+            font-size: 0.95rem;
+        }
+        
+        .category-card li::before {
+            content: '⚠️';
+            position: absolute;
+            right: 0;
+            font-size: 0.8rem;
+        }
+        
+        .methodology-section {
+            background: white;
+            padding: 80px 40px;
+        }
+        
+        .methodology-steps {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .step-card {
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .step-card:hover {
+            background: linear-gradient(135deg, #fef2f2, #fee2e2);
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+        
+        .step-card h4 {
+            font-size: 1.2rem;
+            color: #1a202c;
+            margin-bottom: 15px;
+        }
+        
+        .step-card p {
+            color: #4a5568;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+        
+        .matrix-section {
+            background: linear-gradient(135deg, #fef2f2, #fee2e2);
+            padding: 80px 40px;
+        }
+        
+        .risk-matrix {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+        
+        .matrix-table th,
+        .matrix-table td {
+            padding: 20px;
+            text-align: center;
+            border: 2px solid #e2e8f0;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        
+        .matrix-table th {
+            background: #f8fafc;
+            color: #1a202c;
+        }
+        
+        .risk-low {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .risk-medium {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .risk-high {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        
+        .risk-critical {
+            background: #dc2626;
+            color: white;
+        }
+        
+        .tools-section {
+            background: white;
+            padding: 80px 40px;
+        }
+        
+        .tools-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .tool-card {
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #e2e8f0;
+            text-align: center;
+        }
+        
+        .tool-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .tool-card h4 {
+            font-size: 1.2rem;
+            color: #1a202c;
+            margin-bottom: 10px;
+        }
+        
+        .tool-card p {
+            color: #4a5568;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .deliverables-section {
+            background: #f8fafc;
+            padding: 80px 40px;
+        }
+        
+        .deliverables-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .deliverable-card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .deliverable-card h4 {
+            font-size: 1.3rem;
+            color: #1a202c;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .deliverable-card h4 span {
+            font-size: 1.8rem;
+        }
+        
+        .deliverable-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .deliverable-card li {
+            padding: 8px 0;
+            padding-right: 22px;
+            position: relative;
+            color: #4a5568;
+            font-size: 0.95rem;
+        }
+        
+        .deliverable-card li::before {
+            content: '→';
+            position: absolute;
+            right: 0;
+            color: #dc2626;
+            font-weight: bold;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #991b1b, #dc2626);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 18px 45px;
+            background: white;
+            color: #dc2626;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 80px 25px 50px;
+            }
+            
+            .content-section,
+            .risk-categories-section,
+            .methodology-section,
+            .matrix-section,
+            .tools-section,
+            .deliverables-section {
+                padding: 60px 25px;
+            }
+            
+            .services-grid,
+            .categories-grid,
+            .methodology-steps,
+            .tools-grid,
+            .deliverables-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .matrix-table th,
+            .matrix-table td {
+                padding: 10px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>تحلیل ریسک</h1>
+        <p>شناسایی و ارزیابی ریسک‌های فنی، اقتصادی و عملیاتی پروژه‌ها</p>
+        <div class="breadcrumb">
+            <a href="../index.html">خانه</a> / <a href="../services.html">خدمات</a> / تحلیل ریسک
+        </div>
+    </header>
+    
+    <section class="content-section">
+        <div class="section-intro">
+            <h2>خدمات مدیریت ریسک</h2>
+            <p>شناسایی، ارزیابی و مدیریت ریسک‌های پروژه‌های معدنی</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🔍</div>
+                <h3>شناسایی ریسک</h3>
+                <p>شناسایی جامع تمام ریسک‌های احتمالی</p>
+                <ul>
+                    <li>بررسی اسناد و مطالعات</li>
+                    <li>مصاحبه با ذینفعان</li>
+                    <li>جلسات طوفان فکری</li>
+                    <li>بررسی پروژه‌های مشابه</li>
+                    <li>چک‌لیست‌های استاندارد</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>ارزیابی کیفی</h3>
+                <p>رتبه‌بندی ریسک‌ها بر اساس احتمال و تاثیر</p>
+                <ul>
+                    <li>تعیین احتمال وقوع</li>
+                    <li>ارزیابی میزان تاثیر</li>
+                    <li>ماتریس ریسک</li>
+                    <li>اولویت‌بندی ریسک‌ها</li>
+                    <li>طبقه‌بندی ریسک‌ها</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">📈</div>
+                <h3>ارزیابی کمی</h3>
+                <p>تحلیل عددی و مالی ریسک‌ها</p>
+                <ul>
+                    <li>محاسبه ارزش مورد انتظار</li>
+                    <li>شبیه‌سازی مونت کارلو</li>
+                    <li>تحلیل درخت تصمیم</li>
+                    <li>تحلیل حساسیت</li>
+                    <li>برآورد ذخیره ریسک</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🛡️</div>
+                <h3>برنامه پاسخ به ریسک</h3>
+                <p>تدوین استراتژی‌های مدیریت ریسک</p>
+                <ul>
+                    <li>اجتناب از ریسک</li>
+                    <li>کاهش ریسک</li>
+                    <li>انتقال ریسک</li>
+                    <li>پذیرش ریسک</li>
+                    <li>برنامه اقدامات اصلاحی</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">📋</div>
+                <h3>مستندسازی</h3>
+                <p>تهیه اسناد و گزارش‌های ریسک</p>
+                <ul>
+                    <li>ثبت ریسک (Risk Register)</li>
+                    <li>گزارش تحلیل ریسک</li>
+                    <li>نقشه حرارتی ریسک</li>
+                    <li>برنامه مدیریت ریسک</li>
+                    <li>داشبورد ریسک</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🔄</div>
+                <h3>نظارت و کنترل</h3>
+                <p>پایش مستمر و به‌روزرسانی ریسک‌ها</p>
+                <ul>
+                    <li>پایش ریسک‌های شناسایی شده</li>
+                    <li>شناسایی ریسک‌های جدید</li>
+                    <li>ارزیابی مجدد ریسک‌ها</li>
+                    <li>گزارش‌دهی دوره‌ای</li>
+                    <li>به‌روزرسانی برنامه‌ها</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section class="risk-categories-section">
+        <div class="section-intro">
+            <h2>دسته‌بندی ریسک‌ها</h2>
+            <p>انواع ریسک‌های پروژه‌های معدنی</p>
+        </div>
+        
+        <div class="categories-grid">
+            <div class="category-card">
+                <div class="category-icon">⚙️</div>
+                <h4>ریسک‌های فنی</h4>
+                <ul>
+                    <li>عدم دستیابی به بازدهی طراحی</li>
+                    <li>مشکلات تجهیزات</li>
+                    <li>تغییرات ژئوتکنیکی</li>
+                    <li>مشکلات فرآیندی</li>
+                    <li>نقص در طراحی</li>
+                </ul>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-icon">💰</div>
+                <h4>ریسک‌های مالی</h4>
+                <ul>
+                    <li>افزایش هزینه‌های سرمایه‌ای</li>
+                    <li>افزایش هزینه‌های عملیاتی</li>
+                    <li>کاهش قیمت محصول</li>
+                    <li>نوسانات نرخ ارز</li>
+                    <li>مشکلات تامین مالی</li>
+                </ul>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-icon">⏱️</div>
+                <h4>ریسک‌های زمانی</h4>
+                <ul>
+                    <li>تاخیر در تامین تجهیزات</li>
+                    <li>تاخیر در ساخت و نصب</li>
+                    <li>تاخیر در دریافت مجوزها</li>
+                    <li>مشکلات راه‌اندازی</li>
+                    <li>شرایط آب و هوایی</li>
+                </ul>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-icon">🏗️</div>
+                <h4>ریسک‌های عملیاتی</h4>
+                <ul>
+                    <li>کمبود نیروی متخصص</li>
+                    <li>مشکلات تامین مواد اولیه</li>
+                    <li>خرابی تجهیزات</li>
+                    <li>کاهش کیفیت ماده معدنی</li>
+                    <li>مشکلات زیرساختی</li>
+                </ul>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-icon">⚖️</div>
+                <h4>ریسک‌های قانونی</h4>
+                <ul>
+                    <li>تغییر قوانین و مقررات</li>
+                    <li>مشکلات مالکیت</li>
+                    <li>اختلافات قراردادی</li>
+                    <li>الزامات زیست‌محیطی</li>
+                    <li>مسائل مالیاتی</li>
+                </ul>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-icon">🌍</div>
+                <h4>ریسک‌های محیطی</h4>
+                <ul>
+                    <li>آلودگی محیط زیست</li>
+                    <li>مشکلات آب و خاک</li>
+                    <li>مخالفت‌های محلی</li>
+                    <li>بلایای طبیعی</li>
+                    <li>تغییرات اقلیمی</li>
+                </ul>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-icon">📊</div>
+                <h4>ریسک‌های بازار</h4>
+                <ul>
+                    <li>کاهش تقاضا</li>
+                    <li>ورود رقبای جدید</li>
+                    <li>تغییر ترجیحات مشتری</li>
+                    <li>تحریم‌های تجاری</li>
+                    <li>رکود اقتصادی</li>
+                </ul>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-icon">🔬</div>
+                <h4>ریسک‌های تکنولوژی</h4>
+                <ul>
+                    <li>منسوخ شدن تکنولوژی</li>
+                    <li>عدم موفقیت فناوری جدید</li>
+                    <li>مشکلات یکپارچه‌سازی</li>
+                    <li>وابستگی به تامین‌کننده</li>
+                    <li>کمبود پشتیبانی فنی</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section class="methodology-section">
+        <div class="section-intro">
+            <h2>فرآیند مدیریت ریسک</h2>
+            <p>مراحل سیستماتیک تحلیل و مدیریت ریسک</p>
+        </div>
+        
+        <div class="methodology-steps">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h4>برنامه‌ریزی</h4>
+                <p>تعیین رویکرد و روش‌شناسی مدیریت ریسک</p>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h4>شناسایی</h4>
+                <p>شناسایی جامع تمام ریسک‌های احتمالی پروژه</p>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h4>ارزیابی کیفی</h4>
+                <p>رتبه‌بندی ریسک‌ها بر اساس احتمال و تاثیر</p>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <h4>ارزیابی کمی</h4>
+                <p>تحلیل عددی ریسک‌های با اولویت بالا</p>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-number">5</div>
+                <h4>برنامه پاسخ</h4>
+                <p>تدوین استراتژی‌های مدیریت برای هر ریسک</p>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-number">6</div>
+                <h4>اجرا</h4>
+                <p>اجرای اقدامات کاهش و کنترل ریسک</p>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-number">7</div>
+                <h4>نظارت</h4>
+                <p>پایش مستمر ریسک‌ها و اثربخشی اقدامات</p>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-number">8</div>
+                <h4>گزارش‌دهی</h4>
+                <p>ارائه گزارش‌های دوره‌ای به ذینفعان</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="matrix-section">
+        <div class="section-intro">
+            <h2>ماتریس ریسک</h2>
+            <p>ارزیابی ریسک بر اساس احتمال و تاثیر</p>
+        </div>
+        
+        <div class="risk-matrix">
+            <table class="matrix-table">
+                <thead>
+                    <tr>
+                        <th>احتمال / تاثیر</th>
+                        <th>ناچیز</th>
+                        <th>کم</th>
+                        <th>متوسط</th>
+                        <th>زیاد</th>
+                        <th>بحرانی</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>خیلی زیاد</th>
+                        <td class="risk-medium">متوسط</td>
+                        <td class="risk-high">بالا</td>
+                        <td class="risk-high">بالا</td>
+                        <td class="risk-critical">بحرانی</td>
+                        <td class="risk-critical">بحرانی</td>
+                    </tr>
+                    <tr>
+                        <th>زیاد</th>
+                        <td class="risk-low">پایین</td>
+                        <td class="risk-medium">متوسط</td>
+                        <td class="risk-high">بالا</td>
+                        <td class="risk-high">بالا</td>
+                        <td class="risk-critical">بحرانی</td>
+                    </tr>
+                    <tr>
+                        <th>متوسط</th>
+                        <td class="risk-low">پایین</td>
+                        <td class="risk-medium">متوسط</td>
+                        <td class="risk-medium">متوسط</td>
+                        <td class="risk-high">بالا</td>
+                        <td class="risk-high">بالا</td>
+                    </tr>
+                    <tr>
+                        <th>کم</th>
+                        <td class="risk-low">پایین</td>
+                        <td class="risk-low">پایین</td>
+                        <td class="risk-medium">متوسط</td>
+                        <td class="risk-medium">متوسط</td>
+                        <td class="risk-high">بالا</td>
+                    </tr>
+                    <tr>
+                        <th>خیلی کم</th>
+                        <td class="risk-low">پایین</td>
+                        <td class="risk-low">پایین</td>
+                        <td class="risk-low">پایین</td>
+                        <td class="risk-medium">متوسط</td>
+                        <td class="risk-medium">متوسط</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    
+    <section class="tools-section">
+        <div class="section-intro">
+            <h2>ابزارها و تکنیک‌ها</h2>
+            <p>روش‌های تحلیل ریسک</p>
+        </div>
+        
+        <div class="tools-grid">
+            <div class="tool-card">
+                <div class="tool-icon">🧠</div>
+                <h4>طوفان فکری</h4>
+                <p>جلسات گروهی برای شناسایی ریسک‌ها</p>
+            </div>
+            
+            <div class="tool-card">
+                <div class="tool-icon">📋</div>
+                <h4>چک‌لیست</h4>
+                <p>لیست استاندارد ریسک‌های متداول</p>
+            </div>
+            
+            <div class="tool-card">
+                <div class="tool-icon">🔍</div>
+                <h4>تحلیل SWOT</h4>
+                <p>بررسی نقاط قوت، ضعف، فرصت و تهدید</p>
+            </div>
+            
+            <div class="tool-card">
+                <div class="tool-icon">🌳</div>
+                <h4>درخت تصمیم</h4>
+                <p>تحلیل تصمیمات و نتایج احتمالی</p>
+            </div>
+            
+            <div class="tool-card">
+                <div class="tool-icon">🎲</div>
+                <h4>مونت کارلو</h4>
+                <p>شبیه‌سازی احتمالاتی</p>
+            </div>
+            
+            <div class="tool-card">
+                <div class="tool-icon">📊</div>
+                <h4>تحلیل حساسیت</h4>
+                <p>بررسی تاثیر تغییر پارامترها</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="deliverables-section">
+        <div class="section-intro">
+            <h2>خروجی‌های تحلیل ریسک</h2>
+            <p>مستندات و گزارش‌های ارائه شده</p>
+        </div>
+        
+        <div class="deliverables-grid">
+            <div class="deliverable-card">
+                <h4><span>📋</span>ثبت ریسک</h4>
+                <ul>
+                    <li>لیست کامل ریسک‌ها</li>
+                    <li>احتمال و تاثیر</li>
+                    <li>اولویت‌بندی</li>
+                    <li>مسئول پاسخ</li>
+                    <li>وضعیت فعلی</li>
+                </ul>
+            </div>
+            
+            <div class="deliverable-card">
+                <h4><span>📊</span>گزارش تحلیل</h4>
+                <ul>
+                    <li>خلاصه اجرایی</li>
+                    <li>روش‌شناسی</li>
+                    <li>یافته‌ها</li>
+                    <li>توصیه‌ها</li>
+                    <li>نتیجه‌گیری</li>
+                </ul>
+            </div>
+            
+            <div class="deliverable-card">
+                <h4><span>🗺️</span>نقشه حرارتی</h4>
+                <ul>
+                    <li>ماتریس ریسک</li>
+                    <li>نمایش بصری</li>
+                    <li>رنگ‌بندی اولویت</li>
+                    <li>توزیع ریسک‌ها</li>
+                    <li>مقایسه دوره‌ای</li>
+                </ul>
+            </div>
+            
+            <div class="deliverable-card">
+                <h4><span>🛡️</span>برنامه مدیریت</h4>
+                <ul>
+                    <li>استراتژی‌های پاسخ</li>
+                    <li>اقدامات کاهش</li>
+                    <li>برنامه زمانی</li>
+                    <li>بودجه مورد نیاز</li>
+                    <li>شاخص‌های پایش</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section">
+        <h2>نگران ریسک‌های پروژه هستید؟</h2>
+        <p>با ما تماس بگیرید و ریسک‌های خود را شناسایی و مدیریت کنید</p>
+        <a href="../contact.html" class="cta-button">درخواست تحلیل ریسک</a>
+    </section>
+</body>
+</html>

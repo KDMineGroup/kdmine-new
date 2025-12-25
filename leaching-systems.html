@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سیستم‌های لیچینگ و تصفیه | کاویان توسعه معدن</title>
+    <meta name="description" content="طراحی سیستم‌های لیچینگ، ذوب و تصفیه برای استخراج فلزات با بازدهی بالا">
+    <link rel="icon" type="image/svg+xml" href="https://cdn.grapesjs.com/workspaces/cmgvbwak408ja13nsemkia83b/assets/7e057c43-5d96-4c3a-a8fc-8bd5f6589a93__kavianpremiumbadgelogo.svg">
+    
+    <style>
+        @font-face {
+            font-family: 'B Nazanin';
+            src: local('B Nazanin'), local('BNazanin');
+            font-display: swap;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'B Nazanin', Tahoma, sans-serif;
+            line-height: 1.8;
+            color: #1a202c;
+            background: #ffffff;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #065f46, #059669);
+            color: white;
+            padding: 100px 40px 60px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .header p {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .breadcrumb {
+            margin-top: 30px;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+        
+        .section-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-intro h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: #1a202c;
+            margin-bottom: 20px;
+        }
+        
+        .section-intro p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: #4a5568;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+        
+        .service-card {
+            background: #f8fafc;
+            padding: 35px;
+            border-radius: 15px;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-color: #059669;
+        }
+        
+        .service-icon {
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, #059669, #10b981);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.4rem;
+            color: #1a202c;
+            margin-bottom: 15px;
+        }
+        
+        .service-card p {
+            color: #4a5568;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        .service-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .service-card li {
+            padding: 8px 0;
+            padding-right: 25px;
+            position: relative;
+            color: #4a5568;
+            font-size: 0.95rem;
+        }
+        
+        .service-card li::before {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            color: #059669;
+            font-weight: bold;
+        }
+        
+        .methods-section {
+            background: white;
+            padding: 80px 40px;
+        }
+        
+        .methods-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .method-card {
+            background: #f8fafc;
+            padding: 35px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .method-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .method-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .method-card h4 {
+            font-size: 1.3rem;
+            color: #1a202c;
+            margin-bottom: 15px;
+        }
+        
+        .method-card p {
+            color: #4a5568;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+        
+        .applications-section {
+            background: #f8fafc;
+            padding: 80px 40px;
+        }
+        
+        .app-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .app-card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .app-card h4 {
+            font-size: 1.3rem;
+            color: #1a202c;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .app-card h4 span {
+            font-size: 1.8rem;
+        }
+        
+        .app-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .app-card li {
+            padding: 8px 0;
+            padding-right: 22px;
+            position: relative;
+            color: #4a5568;
+            font-size: 0.95rem;
+        }
+        
+        .app-card li::before {
+            content: '•';
+            position: absolute;
+            right: 0;
+            color: #059669;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #065f46, #059669);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 18px 45px;
+            background: white;
+            color: #059669;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 80px 25px 50px;
+            }
+            
+            .content-section,
+            .methods-section,
+            .applications-section {
+                padding: 60px 25px;
+            }
+            
+            .service-grid,
+            .methods-grid,
+            .app-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>سیستم‌های لیچینگ و تصفیه</h1>
+        <p>طراحی سیستم‌های لیچینگ، ذوب و تصفیه برای استخراج فلزات با بازدهی بالا</p>
+        <div class="breadcrumb">
+            <a href="../index.html">خانه</a> / <a href="../services.html">خدمات</a> / لیچینگ و تصفیه
+        </div>
+    </header>
+    
+    <section class="content-section">
+        <div class="section-intro">
+            <h2>خدمات طراحی سیستم‌های لیچینگ</h2>
+            <p>راهکارهای جامع برای استخراج فلزات از کانسنگ‌ها و کنسانتره‌ها</p>
+        </div>
+        
+        <div class="service-grid">
+            <div class="service-card">
+                <div class="service-icon">🧪</div>
+                <h3>مطالعات متالورژی</h3>
+                <p>آزمایش‌های جامع برای تعیین بهترین روش لیچینگ</p>
+                <ul>
+                    <li>تست‌های لیچینگ آزمایشگاهی</li>
+                    <li>تعیین شرایط بهینه (pH, دما, زمان)</li>
+                    <li>انتخاب معرف‌های مناسب</li>
+                    <li>بررسی سینتیک واکنش</li>
+                    <li>آزمایش‌های پایلوت</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">⚗️</div>
+                <h3>طراحی فرآیند</h3>
+                <p>طراحی کامل سیستم لیچینگ و تصفیه</p>
+                <ul>
+                    <li>طراحی فلوشیت فرآیند</li>
+                    <li>محاسبات جرمی و حجمی</li>
+                    <li>تعیین ظرفیت تانک‌ها</li>
+                    <li>طراحی سیستم هوادهی</li>
+                    <li>بهینه‌سازی مصرف معرف</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🏭</div>
+                <h3>مهندسی تجهیزات</h3>
+                <p>طراحی و انتخاب تجهیزات تخصصی</p>
+                <ul>
+                    <li>تانک‌های لیچینگ</li>
+                    <li>اتوکلاوها</li>
+                    <li>سیستم‌های CIL/CIP</li>
+                    <li>ستون‌های استخراج با حلال</li>
+                    <li>سلول‌های الکتروویننگ</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🔬</div>
+                <h3>کنترل فرآیند</h3>
+                <p>سیستم‌های کنترل و مانیتورینگ پیشرفته</p>
+                <ul>
+                    <li>طراحی سیستم کنترل اتوماتیک</li>
+                    <li>ابزار دقیق اندازه‌گیری</li>
+                    <li>سیستم‌های SCADA</li>
+                    <li>کنترل کیفیت آنلاین</li>
+                    <li>بهینه‌سازی عملیاتی</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">♻️</div>
+                <h3>مدیریت محیط زیست</h3>
+                <p>طراحی سیستم‌های کنترل آلودگی</p>
+                <ul>
+                    <li>تصفیه پساب</li>
+                    <li>بازیافت معرف‌ها</li>
+                    <li>کنترل انتشار گازها</li>
+                    <li>مدیریت باطله</li>
+                    <li>پایش زیست‌محیطی</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">💰</div>
+                <h3>تحلیل اقتصادی</h3>
+                <p>ارزیابی اقتصادی پروژه‌های لیچینگ</p>
+                <ul>
+                    <li>برآورد هزینه‌های سرمایه‌ای</li>
+                    <li>محاسبه هزینه‌های عملیاتی</li>
+                    <li>تحلیل بازدهی سرمایه</li>
+                    <li>مقایسه گزینه‌های مختلف</li>
+                    <li>تحلیل حساسیت</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section class="methods-section">
+        <div class="section-intro">
+            <h2>روش‌های لیچینگ</h2>
+            <p>تکنولوژی‌های مختلف استخراج فلزات</p>
+        </div>
+        
+        <div class="methods-grid">
+            <div class="method-card">
+                <div class="method-icon">🌊</div>
+                <h4>لیچینگ اسیدی</h4>
+                <p>استخراج فلزات با استفاده از اسیدهای مختلف (سولفوریک، کلریدریک، نیتریک)</p>
+            </div>
+            
+            <div class="method-card">
+                <div class="method-icon">⚗️</div>
+                <h4>لیچینگ قلیایی</h4>
+                <p>استخراج با استفاده از محلول‌های قلیایی (سدیم هیدروکسید، آمونیاک)</p>
+            </div>
+            
+            <div class="method-card">
+                <div class="method-icon">💎</div>
+                <h4>لیچینگ سیانور</h4>
+                <p>استخراج طلا و نقره با استفاده از سیانید سدیم یا پتاسیم</p>
+            </div>
+            
+            <div class="method-card">
+                <div class="method-icon">🔥</div>
+                <h4>لیچینگ فشار بالا</h4>
+                <p>استخراج در اتوکلاو با دما و فشار بالا برای افزایش سرعت واکنش</p>
+            </div>
+            
+            <div class="method-card">
+                <div class="method-icon">🦠</div>
+                <h4>بیولیچینگ</h4>
+                <p>استخراج با استفاده از باکتری‌ها و میکروارگانیسم‌ها</p>
+            </div>
+            
+            <div class="method-card">
+                <div class="method-icon">⚡</div>
+                <h4>الکترولیچینگ</h4>
+                <p>استخراج با استفاده از جریان الکتریکی</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="applications-section">
+        <div class="section-intro">
+            <h2>کاربردها</h2>
+            <p>استخراج انواع فلزات با روش‌های لیچینگ</p>
+        </div>
+        
+        <div class="app-grid">
+            <div class="app-card">
+                <h4><span>🥇</span>طلا و نقره</h4>
+                <ul>
+                    <li>لیچینگ سیانور (CIL/CIP)</li>
+                    <li>لیچینگ تیوسولفات</li>
+                    <li>لیچینگ تیواوره</li>
+                    <li>لیچینگ کلر</li>
+                </ul>
+            </div>
+            
+            <div class="app-card">
+                <h4><span>🔴</span>مس</h4>
+                <ul>
+                    <li>لیچینگ اسید سولفوریک</li>
+                    <li>لیچینگ آمونیاکال</li>
+                    <li>لیچینگ باکتریایی</li>
+                    <li>لیچینگ فشار بالا</li>
+                </ul>
+            </div>
+            
+            <div class="app-card">
+                <h4><span>⚪</span>نیکل و کبالت</h4>
+                <ul>
+                    <li>لیچینگ اسیدی فشار بالا</li>
+                    <li>لیچینگ آمونیاکال</li>
+                    <li>لیچینگ کلریدی</li>
+                </ul>
+            </div>
+            
+            <div class="app-card">
+                <h4><span>⚫</span>روی و سرب</h4>
+                <ul>
+                    <li>لیچینگ اسید سولفوریک</li>
+                    <li>لیچینگ قلیایی</li>
+                    <li>لیچینگ کلریدی</li>
+                </ul>
+            </div>
+            
+            <div class="app-card">
+                <h4><span>🟡</span>اورانیوم</h4>
+                <ul>
+                    <li>لیچینگ اسیدی</li>
+                    <li>لیچینگ قلیایی</li>
+                    <li>لیچینگ درجا (ISL)</li>
+                </ul>
+            </div>
+            
+            <div class="app-card">
+                <h4><span>🔵</span>عناصر نادر خاکی</h4>
+                <ul>
+                    <li>لیچینگ اسیدی</li>
+                    <li>استخراج با حلال</li>
+                    <li>رسوب‌دهی انتخابی</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section">
+        <h2>پروژه لیچینگ دارید؟</h2>
+        <p>با ما تماس بگیرید و از تجربه ما در طراحی سیستم‌های لیچینگ بهره‌مند شوید</p>
+        <a href="../contact.html" class="cta-button">درخواست مشاوره رایگان</a>
+    </section>
+</body>
+</html>

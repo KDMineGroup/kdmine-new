@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورود به منابع فنی | کاویان توسعه معدن</title>
+    <meta name="description" content="ورود به پنل کاربری و دسترسی به منابع فنی">
+    <link rel="icon" type="image/svg+xml" href="https://cdn.grapesjs.com/workspaces/cmgvbwak408ja13nsemkia83b/assets/7e057c43-5d96-4c3a-a8fc-8bd5f6589a93__kavianpremiumbadgelogo.svg">
+    
+    <style>
+        @font-face {
+            font-family: 'B Nazanin';
+            src: local('B Nazanin'), local('BNazanin');
+            font-display: swap;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'B Nazanin', Tahoma, sans-serif;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+        
+        .login-container {
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 25px 70px rgba(0,0,0,0.3);
+            max-width: 1000px;
+            width: 100%;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            animation: slideUp 0.6s ease;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Left Side - Info */
+        .login-info {
+            background: linear-gradient(135deg, #1e3a8a, #2563eb);
+            color: white;
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .login-info img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            background: white;
+            padding: 10px;
+        }
+        
+        .login-info h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        
+        .login-info p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .features-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .features-list li {
+            padding: 12px 0;
+            padding-right: 35px;
+            position: relative;
+            font-size: 1.05rem;
+            opacity: 0.95;
+        }
+        
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            font-size: 1.5rem;
+            color: #10b981;
+        }
+        
+        /* Right Side - Form */
+        .login-form-section {
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .form-header h1 {
+            font-size: 2rem;
+            color: #1a202c;
+            margin-bottom: 10px;
+        }
+        
+        .form-header p {
+            color: #4a5568;
+            font-size: 1.05rem;
+        }
+        
+        .login-form {
+            width: 100%;
+        }
+        
+        .error-message {
+            background: #fee2e2;
+            border: 2px solid #dc2626;
+            color: #991b1b;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            display: none;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+        
+        .error-message.show {
+            display: block;
+            animation: shake 0.5s;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-8px); }
+            20%, 40%, 60%, 80% { transform: translateX(8px); }
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #1a202c;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        
+        .input-wrapper {
+            position: relative;
+        }
+        
+        .input-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            color: #4a5568;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 15px 50px 15px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+        }
+        
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .remember-me input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+        
+        .remember-me label {
+            color: #4a5568;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+        
+        .forgot-password {
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: bold;
+        }
+        
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+        
+        .login-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.15rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+        
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+        }
+        
+        .login-btn:active {
+            transform: translateY(0);
+        }
+        
+        .divider {
+            text-align: center;
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #e2e8f0;
+        }
+        
+        .divider span {
+            background: white;
+            padding: 0 15px;
+            color: #4a5568;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .register-link {
+            text-align: center;
+            color: #4a5568;
+            font-size: 1rem;
+        }
+        
+        .register-link a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+        
+        .back-home {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .back-home a {
+            color: #4a5568;
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .back-home a:hover {
+            color: #2563eb;
+        }
+        
+        @media (max-width: 768px) {
+            .login-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .login-info {
+                padding: 40px 30px;
+            }
+            
+            .login-form-section {
+                padding: 40px 30px;
+            }
+            
+            .form-options {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <!-- Left Side - Info -->
+        <div class="login-info">
+            <img src="https://cdn.grapesjs.com/workspaces/cmgvbwak408ja13nsemkia83b/assets/7e057c43-5d96-4c3a-a8fc-8bd5f6589a93__kavianpremiumbadgelogo.svg" alt="Kavian Logo">
+            <h2>به پنل منابع فنی خوش آمدید</h2>
+            <p>با ورود به سیستم، به ابزارها و منابع تخصصی دسترسی پیدا کنید</p>
+            
+            <ul class="features-list">
+                <li>ماشین‌حساب‌های تخصصی</li>
+                <li>پایگاه داده تجهیزات</li>
+                <li>مطالعات موردی</li>
+                <li>استانداردها و مقالات</li>
+                <li>پشتیبانی اختصاصی</li>
+            </ul>
+        </div>
+        
+        <!-- Right Side - Form -->
+        <div class="login-form-section">
+            <div class="form-header">
+                <h1>ورود به سیستم</h1>
+                <p>لطفاً اطلاعات خود را وارد کنید</p>
+            </div>
+            
+            <form class="login-form" id="loginForm">
+                <div class="error-message" id="errorMessage">
+                    ایمیل یا رمز عبور اشتباه است.
+                </div>
+                
+                <div class="form-group">
+                    <label>ایمیل</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">📧</span>
+                        <input type="email" id="email" required placeholder="example@email.com" autocomplete="email">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>رمز عبور</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🔒</span>
+                        <input type="password" id="password" required placeholder="رمز عبور خود را وارد کنید" autocomplete="current-password">
+                    </div>
+                </div>
+                
+                <div class="form-options">
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">مرا به خاطر بسپار</label>
+                    </div>
+                    <a href="#" class="forgot-password">فراموشی رمز عبور؟</a>
+                </div>
+                
+                <button type="submit" class="login-btn">ورود به پنل</button>
+                
+                <div class="divider">
+                    <span>یا</span>
+                </div>
+                
+                <div class="register-link">
+                    حساب کاربری ندارید؟ <a href="register.html">ثبت‌نام کنید</a>
+                </div>
+                
+                <div class="back-home">
+                    <a href="index.html">← بازگشت به صفحه اصلی</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        // Demo credentials for testing
+        const DEMO_USERS = {
+            'user@kdmine.com': 'User@2025',
+            'demo@kdmine.com': 'Demo@2025'
+        };
+        
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const remember = document.getElementById('remember').checked;
+            const errorMessage = document.getElementById('errorMessage');
+            
+            errorMessage.classList.remove('show');
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                errorMessage.textContent = 'لطفاً یک ایمیل معتبر وارد کنید.';
+                errorMessage.classList.add('show');
+                return;
+            }
+            
+            // Check credentials
+            if (DEMO_USERS[email] && DEMO_USERS[email] === password) {
+                // Set user authentication
+                const userData = {
+                    email: email,
+                    loginTime: new Date().toISOString(),
+                    remember: remember
+                };
+                
+                if (remember) {
+                    localStorage.setItem('userAuth', JSON.stringify(userData));
+                } else {
+                    sessionStorage.setItem('userAuth', JSON.stringify(userData));
+                }
+                
+                // Show success message
+                errorMessage.style.background = '#d1fae5';
+                errorMessage.style.borderColor = '#059669';
+                errorMessage.style.color = '#065f46';
+                errorMessage.textContent = '✓ ورود موفق! در حال انتقال...';
+                errorMessage.classList.add('show');
+                
+                // Redirect to dashboard
+                setTimeout(() => {
+                    window.location.href = 'equipment.html';
+                }, 1500);
+            } else {
+                // Show error
+                errorMessage.textContent = 'ایمیل یا رمز عبور اشتباه است.';
+                errorMessage.classList.add('show');
+            }
+        });
+        
+        // Check if user is already logged in
+        window.addEventListener('load', function() {
+            const userAuth = localStorage.getItem('userAuth') || sessionStorage.getItem('userAuth');
+            if (userAuth) {
+                const userData = JSON.parse(userAuth);
+                const loginTime = new Date(userData.loginTime);
+                const now = new Date();
+                const hoursDiff = (now - loginTime) / (1000 * 60 * 60);
+                
+                // If logged in within last 24 hours, redirect
+                if (hoursDiff < 24) {
+                    window.location.href = 'equipment.html';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

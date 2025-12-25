@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>درباره ما | کاویان توسعه معدن</title>
+    <meta name="description" content="کاویان توسعه معدن - مشاور تخصصی در زمینه مهندسی تجهیزات معدنی و اقتصاد معدن">
+    <link rel="icon" type="image/svg+xml" href="https://cdn.grapesjs.com/workspaces/cmgvbwak408ja13nsemkia83b/assets/7e057c43-5d96-4c3a-a8fc-8bd5f6589a93__kavianpremiumbadgelogo.svg">
+    
+    <style>
+        @font-face {
+            font-family: 'B Nazanin';
+            src: local('B Nazanin'), local('BNazanin');
+            font-display: swap;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'B Nazanin', Tahoma, sans-serif;
+            line-height: 1.8;
+            color: #1a202c;
+            background: #ffffff;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background: linear-gradient(135deg, #1e3a8a, #2563eb);
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            background: white;
+            padding: 5px;
+        }
+        
+        .logo-text h2 {
+            font-size: 1.4rem;
+            margin-bottom: 2px;
+        }
+        
+        .logo-text p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 600;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        
+        .nav-cta {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn-nav {
+            padding: 10px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: #2563eb;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255,255,255,0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: #2563eb;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 100px 40px 80px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .hero p {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Content Sections */
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: #1a202c;
+            margin-bottom: 15px;
+        }
+        
+        .section-header p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: #4a5568;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Story Section */
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+        
+        .story-content h3 {
+            font-size: 1.8rem;
+            color: #1a202c;
+            margin-bottom: 20px;
+        }
+        
+        .story-content p {
+            font-size: 1.05rem;
+            color: #4a5568;
+            line-height: 1.9;
+            margin-bottom: 15px;
+        }
+        
+        .story-image {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+        }
+        
+        /* Values Section */
+        .values-section {
+            background: #f8fafc;
+            padding: 80px 40px;
+        }
+        
+        .values-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .value-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+        
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #2563eb, #60a5fa);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            margin: 0 auto 25px;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+        }
+        
+        .value-card h3 {
+            font-size: 1.5rem;
+            color: #1a202c;
+            margin-bottom: 15px;
+        }
+        
+        .value-card p {
+            font-size: 1rem;
+            color: #4a5568;
+            line-height: 1.7;
+        }
+        
+        /* Team Section */
+        .team-section {
+            background: white;
+            padding: 80px 40px;
+        }
+        
+        .team-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+        }
+        
+        .team-member {
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 35px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .member-avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #2563eb, #60a5fa);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            margin: 0 auto 20px;
+        }
+        
+        .team-member h4 {
+            font-size: 1.3rem;
+            color: #1a202c;
+            margin-bottom: 8px;
+        }
+        
+        .team-member .role {
+            color: #2563eb;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        
+        .team-member p {
+            color: #4a5568;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 80px 40px;
+        }
+        
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .stat-item p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: white;
+            padding: 80px 40px;
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-content h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: #1a202c;
+            margin-bottom: 20px;
+        }
+        
+        .cta-content p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: #4a5568;
+            margin-bottom: 40px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-cta {
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .btn-cta-primary {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+        }
+        
+        .btn-cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(37, 99, 235, 0.4);
+        }
+        
+        .btn-cta-secondary {
+            background: white;
+            color: #2563eb;
+            border: 3px solid #2563eb;
+        }
+        
+        .btn-cta-secondary:hover {
+            background: #2563eb;
+            color: white;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1a202c;
+            color: white;
+            padding: 60px 40px 30px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: #cbd5e0;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid #2d3748;
+            text-align: center;
+            color: #cbd5e0;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .nav-cta {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .story-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                padding: 80px 25px 60px;
+            }
+            
+            .content-section,
+            .values-section,
+            .team-section,
+            .stats-section,
+            .cta-section {
+                padding: 60px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="https://cdn.grapesjs.com/workspaces/cmgvbwak408ja13nsemkia83b/assets/7e057c43-5d96-4c3a-a8fc-8bd5f6589a93__kavianpremiumbadgelogo.svg" alt="Kavian Logo">
+                <div class="logo-text">
+                    <h2>کاویان توسعه معدن</h2>
+                    <p>Kavian Development Mine</p>
+                </div>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">خانه</a></li>
+                <li><a href="about.html">درباره ما</a></li>
+                <li><a href="services.html">خدمات</a></li>
+                <li><a href="portfolio.html">نمونه کارها</a></li>
+                <li><a href="blog.html">وبلاگ</a></li>
+            </ul>
+            
+            <div class="nav-cta">
+                <a href="register.html" class="btn-nav btn-primary">ثبت‌نام</a>
+                <a href="contact.html" class="btn-nav btn-secondary">تماس با ما</a>
+            </div>
+            
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>درباره کاویان توسعه معدن</h1>
+        <p>پیشرو در مهندسی تجهیزات معدنی و تحلیل اقتصادی پروژه‌های معدنی</p>
+    </section>
+    
+    <!-- Story Section -->
+    <section class="content-section">
+        <div class="story-grid">
+            <div class="story-content">
+                <h3>داستان ما</h3>
+                <p>
+                    کاویان توسعه معدن با هدف ارائه خدمات مهندسی تخصصی در حوزه تجهیزات معدنی و تحلیل اقتصادی پروژه‌ها تاسیس شد. ما با تکیه بر دانش فنی روز و تجربه گسترده در پروژه‌های بین‌المللی، به یکی از مراجع معتبر در این حوزه تبدیل شده‌ایم.
+                </p>
+                <p>
+                    تیم ما متشکل از مهندسان با تجربه در زمینه‌های مختلف معدن، متالورژی و اقتصاد است که با بهره‌گیری از جدیدترین تکنولوژی‌ها و روش‌های تحلیلی، بهترین راهکارها را برای موفقیت پروژه‌های شما ارائه می‌دهند.
+                </p>
+                <p>
+                    ماموریت ما کمک به توسعه صنعت معدن کشور از طریق ارائه خدمات مهندسی با کیفیت، انتقال دانش فنی و ایجاد ارتباط بین صنعت داخلی و تکنولوژی‌های پیشرفته جهانی است.
+                </p>
+            </div>
+            
+            <div class="story-image">
+                ⛏️
+            </div>
+        </div>
+    </section>
+    
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="section-header">
+            <h2>ارزش‌های ما</h2>
+            <p>اصولی که ما را هدایت می‌کنند</p>
+        </div>
+        
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">🎯</div>
+                <h3>تخصص و دقت</h3>
+                <p>ارائه خدمات مهندسی با بالاترین استانداردهای کیفی و دقت فنی</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">💡</div>
+                <h3>نوآوری</h3>
+                <p>استفاده از جدیدترین تکنولوژی‌ها و روش‌های نوین در ارائه راهکارها</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">🤝</div>
+                <h3>اعتماد و شفافیت</h3>
+                <p>ایجاد روابط بلندمدت مبتنی بر اعتماد و ارتباطات شفاف</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">🌍</div>
+                <h3>مسئولیت اجتماعی</h3>
+                <p>توجه به ملاحظات زیست‌محیطی و مسئولیت اجتماعی در تمام پروژه‌ها</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">📚</div>
+                <h3>یادگیری مستمر</h3>
+                <p>به‌روز ماندن با آخرین پیشرفت‌های علمی و فناوری صنعت</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">⭐</div>
+                <h3>تعالی</h3>
+                <p>تلاش مستمر برای بهبود کیفیت خدمات و رضایت مشتریان</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="section-header">
+            <h2>تیم ما</h2>
+            <p>متخصصان با تجربه در خدمت شما</p>
+        </div>
+        
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-avatar">👨‍💼</div>
+                <h4>دکتر احمد رضایی</h4>
+                <p class="role">مدیرعامل و مهندس ارشد</p>
+                <p>دکترای مهندسی معدن با 15 سال تجربه در پروژه‌های بین‌المللی</p>
+            </div>
+            
+            <div class="team-member">
+                <div class="member-avatar">👨‍🔬</div>
+                <h4>مهندس محمد کریمی</h4>
+                <p class="role">مدیر فنی</p>
+                <p>متخصص در طراحی کارخانجات تغلیظ و فرآوری مواد معدنی</p>
+            </div>
+            
+            <div class="team-member">
+                <div class="member-avatar">👩‍💼</div>
+                <h4>دکتر سارا احمدی</h4>
+                <p class="role">مدیر تحلیل اقتصادی</p>
+                <p>دکترای اقتصاد معدن با تخصص در ارزیابی پروژه‌های سرمایه‌گذاری</p>
+            </div>
+            
+            <div class="team-member">
+                <div class="member-avatar">👨‍💻</div>
+                <h4>مهندس علی محمدی</h4>
+                <p class="role">مدیر پروژه</p>
+                <p>مهندس مکانیک با تجربه در مدیریت پروژه‌های EPC</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="section-header">
+            <h2 style="color: white;">دستاوردهای ما</h2>
+            <p style="color: rgba(255,255,255,0.9);">آماری از فعالیت‌های ما</p>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>50+</h3>
+                <p>پروژه موفق</p>
+            </div>
+            
+            <div class="stat-item">
+                <h3>30+</h3>
+                <p>مشتری راضی</p>
+            </div>
+            
+            <div class="stat-item">
+                <h3>15</h3>
+                <p>سال تجربه</p>
+            </div>
+            
+            <div class="stat-item">
+                <h3>100+</h3>
+                <p>مطالعه فنی</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>آماده همکاری با شما هستیم</h2>
+            <p>با ما تماس بگیرید و از تجربه و تخصص ما در پروژه خود بهره‌مند شوید</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn-cta btn-cta-primary">تماس با ما</a>
+                <a href="services.html" class="btn-cta btn-cta-secondary">خدمات ما</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>کاویان توسعه معدن</h3>
+                <p>مشاور تخصصی در زمینه مهندسی تجهیزات معدنی و اقتصاد معدن</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>دسترسی سریع</h3>
+                <a href="index.html">خانه</a>
+                <a href="about.html">درباره ما</a>
+                <a href="services.html">خدمات</a>
+                <a href="portfolio.html">نمونه کارها</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>خدمات</h3>
+                <a href="services/equipment-selection.html">انتخاب تجهیزات</a>
+                <a href="services/economic-analysis.html">تحلیل اقتصادی</a>
+                <a href="services/risk-analysis.html">تحلیل ریسک</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>تماس با ما</h3>
+                <p>📧 info@kdmine.com</p>
+                <p>📞 +98 21 1234 5678</p>
+                <p>📍 تهران، ایران</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 کاویان توسعه معدن. تمامی حقوق محفوظ است.</p>
+        </div>
+    </footer>
+</body>
+</html>

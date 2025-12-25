@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کارخانجات تغلیظ شیمیایی | کاویان توسعه معدن</title>
+    <meta name="description" content="طراحی و بهینه‌سازی کارخانجات تغلیظ، فلوتاسیون و فرآیندهای جداسازی معدنی">
+    <link rel="icon" type="image/svg+xml" href="https://cdn.grapesjs.com/workspaces/cmgvbwak408ja13nsemkia83b/assets/7e057c43-5d96-4c3a-a8fc-8bd5f6589a93__kavianpremiumbadgelogo.svg">
+    
+    <style>
+        @font-face {
+            font-family: 'B Nazanin';
+            src: local('B Nazanin'), local('BNazanin');
+            font-display: swap;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'B Nazanin', Tahoma, sans-serif;
+            line-height: 1.8;
+            color: #1a202c;
+            background: #ffffff;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 100px 40px 60px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .header p {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .breadcrumb {
+            margin-top: 30px;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            opacity: 0.7;
+        }
+        
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+        
+        .section-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-intro h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: #1a202c;
+            margin-bottom: 20px;
+        }
+        
+        .section-intro p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: #4a5568;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .service-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+        
+        .detail-card {
+            background: #f8fafc;
+            padding: 35px;
+            border-radius: 15px;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s;
+        }
+        
+        .detail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-color: #2563eb;
+        }
+        
+        .detail-card-icon {
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, #2563eb, #60a5fa);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .detail-card h3 {
+            font-size: 1.4rem;
+            color: #1a202c;
+            margin-bottom: 15px;
+        }
+        
+        .detail-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .detail-card li {
+            padding: 10px 0;
+            padding-right: 25px;
+            position: relative;
+            color: #4a5568;
+        }
+        
+        .detail-card li::before {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            color: #059669;
+            font-weight: bold;
+        }
+        
+        .process-section {
+            background: white;
+            padding: 80px 40px;
+        }
+        
+        .process-steps {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .process-step {
+            text-align: center;
+            padding: 30px;
+            background: #f8fafc;
+            border-radius: 15px;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+        
+        .process-step h4 {
+            font-size: 1.2rem;
+            color: #1a202c;
+            margin-bottom: 15px;
+        }
+        
+        .process-step p {
+            color: #4a5568;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+        
+        .technologies-section {
+            background: #f8fafc;
+            padding: 80px 40px;
+        }
+        
+        .tech-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .tech-card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .tech-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .tech-card h4 {
+            font-size: 1.3rem;
+            color: #1a202c;
+            margin-bottom: 15px;
+        }
+        
+        .tech-card p {
+            color: #4a5568;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        .tech-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .tech-card li {
+            padding: 6px 0;
+            padding-right: 20px;
+            position: relative;
+            color: #4a5568;
+            font-size: 0.9rem;
+        }
+        
+        .tech-card li::before {
+            content: '•';
+            position: absolute;
+            right: 0;
+            color: #2563eb;
+            font-weight: bold;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 18px 45px;
+            background: white;
+            color: #2563eb;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 80px 25px 50px;
+            }
+            
+            .content-section,
+            .process-section,
+            .technologies-section {
+                padding: 60px 25px;
+            }
+            
+            .service-details,
+            .process-steps,
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>کارخانجات تغلیظ شیمیایی</h1>
+        <p>طراحی و بهینه‌سازی کارخانجات تغلیظ، فلوتاسیون و فرآیندهای جداسازی</p>
+        <div class="breadcrumb">
+            <a href="../index.html">خانه</a> / <a href="../services.html">خدمات</a> / کارخانجات تغلیظ
+        </div>
+    </header>
+    
+    <section class="content-section">
+        <div class="section-intro">
+            <h2>خدمات طراحی کارخانجات تغلیظ</h2>
+            <p>ما با استفاده از تکنولوژی‌های پیشرفته، کارخانجات تغلیظ با بازدهی بالا طراحی می‌کنیم</p>
+        </div>
+        
+        <div class="service-details">
+            <div class="detail-card">
+                <div class="detail-card-icon">🔬</div>
+                <h3>مطالعات آزمایشگاهی</h3>
+                <ul>
+                    <li>آزمایش‌های فلوتاسیون</li>
+                    <li>تست‌های جداسازی مغناطیسی</li>
+                    <li>آزمایش‌های جداسازی گرانشی</li>
+                    <li>تعیین شرایط بهینه فرآیند</li>
+                    <li>بررسی معرف‌های شیمیایی</li>
+                </ul>
+            </div>
+            
+            <div class="detail-card">
+                <div class="detail-card-icon">📐</div>
+                <h3>طراحی فرآیندی</h3>
+                <ul>
+                    <li>طراحی فلوشیت فرآیند</li>
+                    <li>محاسبات جرمی و حجمی</li>
+                    <li>تعیین ظرفیت تجهیزات</li>
+                    <li>بهینه‌سازی مدار تغلیظ</li>
+                    <li>شبیه‌سازی فرآیند</li>
+                </ul>
+            </div>
+            
+            <div class="detail-card">
+                <div class="detail-card-icon">🏗️</div>
+                <h3>مهندسی تفضیلی</h3>
+                <ul>
+                    <li>طراحی تجهیزات اصلی</li>
+                    <li>نقشه‌های مکانیکال</li>
+                    <li>طراحی سیستم کنترل</li>
+                    <li>طراحی سیستم پایپینگ</li>
+                    <li>مشخصات فنی خرید</li>
+                </ul>
+            </div>
+            
+            <div class="detail-card">
+                <div class="detail-card-icon">💰</div>
+                <h3>تحلیل اقتصادی</h3>
+                <ul>
+                    <li>برآورد CAPEX و OPEX</li>
+                    <li>تحلیل بازدهی سرمایه</li>
+                    <li>محاسبه نقطه سربه‌سر</li>
+                    <li>تحلیل حساسیت</li>
+                    <li>ارزیابی ریسک مالی</li>
+                </ul>
+            </div>
+            
+            <div class="detail-card">
+                <div class="detail-card-icon">🔧</div>
+                <h3>راه‌اندازی و بهره‌برداری</h3>
+                <ul>
+                    <li>نظارت بر نصب تجهیزات</li>
+                    <li>کمیشنینگ و راه‌اندازی</li>
+                    <li>آموزش پرسنل</li>
+                    <li>بهینه‌سازی عملیاتی</li>
+                    <li>پشتیبانی فنی</li>
+                </ul>
+            </div>
+            
+            <div class="detail-card">
+                <div class="detail-card-icon">📊</div>
+                <h3>مدیریت پروژه</h3>
+                <ul>
+                    <li>برنامه‌ریزی زمانی</li>
+                    <li>کنترل هزینه</li>
+                    <li>مدیریت ریسک</li>
+                    <li>کنترل کیفیت</li>
+                    <li>گزارش‌دهی منظم</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section class="process-section">
+        <div class="section-intro">
+            <h2>فرآیند طراحی</h2>
+            <p>مراحل طراحی و اجرای کارخانه تغلیظ</p>
+        </div>
+        
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h4>مطالعات امکان‌سنجی</h4>
+                <p>بررسی اولیه ماده معدنی و تعیین روش‌های تغلیظ مناسب</p>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h4>آزمایش‌های پایلوت</h4>
+                <p>انجام تست‌های آزمایشگاهی و پایلوت برای تعیین پارامترهای بهینه</p>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h4>طراحی مفهومی</h4>
+                <p>تهیه فلوشیت فرآیند و انتخاب تجهیزات اصلی</p>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h4>مهندسی پایه</h4>
+                <p>محاسبات تفصیلی و طراحی اولیه تجهیزات</p>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-number">5</div>
+                <h4>مهندسی تفصیلی</h4>
+                <p>تهیه نقشه‌های اجرایی و مشخصات فنی کامل</p>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-number">6</div>
+                <h4>خرید و ساخت</h4>
+                <p>تامین تجهیزات و نظارت بر ساخت</p>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-number">7</div>
+                <h4>نصب و راه‌اندازی</h4>
+                <p>نظارت بر نصب و کمیشنینگ کارخانه</p>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-number">8</div>
+                <h4>بهره‌برداری</h4>
+                <p>پشتیبانی فنی و بهینه‌سازی عملیاتی</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="technologies-section">
+        <div class="section-intro">
+            <h2>تکنولوژی‌های تغلیظ</h2>
+            <p>روش‌های مختلف تغلیظ و جداسازی معدنی</p>
+        </div>
+        
+        <div class="tech-grid">
+            <div class="tech-card">
+                <div class="tech-icon">💧</div>
+                <h4>فلوتاسیون</h4>
+                <p>جداسازی کانی‌ها بر اساس خواص سطحی</p>
+                <ul>
+                    <li>فلوتاسیون مستقیم</li>
+                    <li>فلوتاسیون معکوس</li>
+                    <li>فلوتاسیون انتخابی</li>
+                    <li>فلوتاسیون ستونی</li>
+                </ul>
+            </div>
+            
+            <div class="tech-card">
+                <div class="tech-icon">🧲</div>
+                <h4>جداسازی مغناطیسی</h4>
+                <p>جداسازی کانی‌های مغناطیسی</p>
+                <ul>
+                    <li>جداکننده‌های شدت پایین</li>
+                    <li>جداکننده‌های شدت بالا</li>
+                    <li>جداسازی خشک</li>
+                    <li>جداسازی تر</li>
+                </ul>
+            </div>
+            
+            <div class="tech-card">
+                <div class="tech-icon">⚖️</div>
+                <h4>جداسازی گرانشی</h4>
+                <p>جداسازی بر اساس اختلاف وزن مخصوص</p>
+                <ul>
+                    <li>میز تکان‌دهنده</li>
+                    <li>جیگ</li>
+                    <li>مارپیچ</li>
+                    <li>کنسانتراتور سانتریفیوژ</li>
+                </ul>
+            </div>
+            
+            <div class="tech-card">
+                <div class="tech-icon">⚡</div>
+                <h4>جداسازی الکتریکی</h4>
+                <p>جداسازی بر اساس خواص الکتریکی</p>
+                <ul>
+                    <li>جداکننده الکترواستاتیک</li>
+                    <li>جداکننده کرونا</li>
+                    <li>جداسازی تریبوالکتریک</li>
+                </ul>
+            </div>
+            
+            <div class="tech-card">
+                <div class="tech-icon">💎</div>
+                <h4>جداسازی نوری</h4>
+                <p>جداسازی با استفاده از اشعه ایکس</p>
+                <ul>
+                    <li>سورتینگ نوری</li>
+                    <li>جداسازی XRT</li>
+                    <li>سنسورهای لیزری</li>
+                </ul>
+            </div>
+            
+            <div class="tech-card">
+                <div class="tech-icon">🌊</div>
+                <h4>غلیظ‌سازی و فیلتراسیون</h4>
+                <p>جداسازی جامد از مایع</p>
+                <ul>
+                    <li>تیکنر</li>
+                    <li>فیلتر پرس</li>
+                    <li>فیلتر دیسکی</li>
+                    <li>سانتریفیوژ</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section">
+        <h2>پروژه تغلیظ دارید؟</h2>
+        <p>با ما تماس بگیرید و از تجربه ما در طراحی کارخانجات تغلیظ بهره‌مند شوید</p>
+        <a href="../contact.html" class="cta-button">درخواست مشاوره رایگان</a>
+    </section>
+</body>
+</html>

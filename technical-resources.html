@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منابع فنی | کاویان توسعه معدن</title>
+    <meta name="description" content="دسترسی به ماشین‌حساب‌ها، پایگاه داده تجهیزات و منابع فنی تخصصی">
+    <link rel="icon" type="image/svg+xml" href="https://cdn.grapesjs.com/workspaces/cmgvbwak408ja13nsemkia83b/assets/7e057c43-5d96-4c3a-a8fc-8bd5f6589a93__kavianpremiumbadgelogo.svg">
+    
+    <style>
+        @font-face {
+            font-family: 'B Nazanin';
+            src: local('B Nazanin'), local('BNazanin');
+            font-display: swap;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'B Nazanin', Tahoma, sans-serif;
+            line-height: 1.8;
+            color: #1a202c;
+            background: #ffffff;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background: linear-gradient(135deg, #1e3a8a, #2563eb);
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            background: white;
+            padding: 5px;
+        }
+        
+        .logo-text h2 {
+            font-size: 1.4rem;
+            margin-bottom: 2px;
+        }
+        
+        .logo-text p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 600;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        
+        .nav-cta {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn-nav {
+            padding: 10px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: #2563eb;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255,255,255,0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: #2563eb;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 100px 40px 80px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .hero p {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .hero-btn {
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .hero-btn-white {
+            background: white;
+            color: #2563eb;
+        }
+        
+        .hero-btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255,255,255,0.3);
+        }
+        
+        .hero-btn-outline {
+            background: transparent;
+            color: white;
+            border: 3px solid white;
+        }
+        
+        .hero-btn-outline:hover {
+            background: white;
+            color: #2563eb;
+        }
+        
+        /* Access Levels */
+        .access-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: #1a202c;
+            margin-bottom: 15px;
+        }
+        
+        .section-header p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: #4a5568;
+        }
+        
+        .access-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+        
+        .access-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border: 3px solid transparent;
+            position: relative;
+        }
+        
+        .access-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+        
+        .access-card.premium {
+            border-color: #f59e0b;
+            background: linear-gradient(135deg, #fffbeb, #fef3c7);
+        }
+        
+        .access-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .badge-basic {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+        
+        .badge-premium {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+        }
+        
+        .access-card h3 {
+            font-size: 2rem;
+            color: #1a202c;
+            margin-bottom: 10px;
+        }
+        
+        .access-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2563eb;
+            margin-bottom: 20px;
+        }
+        
+        .access-price.premium-price {
+            color: #d97706;
+        }
+        
+        .access-card p {
+            color: #4a5568;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+        
+        .access-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+        
+        .access-features li {
+            padding: 12px 0;
+            padding-right: 30px;
+            position: relative;
+            color: #1a202c;
+            font-size: 1rem;
+        }
+        
+        .access-features li::before {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            color: #059669;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+        
+        .access-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .access-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+        }
+        
+        .access-btn.premium-btn {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+        
+        .access-btn.premium-btn:hover {
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
+        }
+        
+        /* Resources Grid */
+        .resources-section {
+            background: #f8fafc;
+            padding: 80px 40px;
+        }
+        
+        .resources-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .resource-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .resource-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #2563eb, #60a5fa);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .resource-card h3 {
+            font-size: 1.4rem;
+            color: #1a202c;
+            margin-bottom: 10px;
+        }
+        
+        .resource-card p {
+            color: #4a5568;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        .resource-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            background: #fef3c7;
+            color: #92400e;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .resource-badge.free {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        /* Lock Overlay */
+        .locked-overlay {
+            position: relative;
+        }
+        
+        .locked-overlay::after {
+            content: '🔒';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .locked-overlay:hover::after {
+            opacity: 0.3;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+        }
+        
+        .cta-content h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            margin-bottom: 20px;
+        }
+        
+        .cta-content p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+        
+        .cta-btn {
+            padding: 18px 40px;
+            background: white;
+            color: #2563eb;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1a202c;
+            color: white;
+            padding: 60px 40px 30px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: #cbd5e0;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid #2d3748;
+            text-align: center;
+            color: #cbd5e0;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links, .nav-cta {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .access-grid,
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                padding: 80px 25px 60px;
+            }
+            
+            .access-section,
+            .resources-section,
+            .cta-section {
+                padding: 60px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="https://cdn.grapesjs.com/workspaces/cmgvbwak408ja13nsemkia83b/assets/7e057c43-5d96-4c3a-a8fc-8bd5f6589a93__kavianpremiumbadgelogo.svg" alt="Kavian Logo">
+                <div class="logo-text">
+                    <h2>کاویان توسعه معدن</h2>
+                    <p>Kavian Development Mine</p>
+                </div>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">خانه</a></li>
+                <li><a href="about.html">درباره ما</a></li>
+                <li><a href="services.html">خدمات</a></li>
+                <li><a href="portfolio.html">نمونه کارها</a></li>
+                <li><a href="blog.html">وبلاگ</a></li>
+            </ul>
+            
+            <div class="nav-cta">
+                <a href="register.html" class="btn-nav btn-primary">ثبت‌نام</a>
+                <a href="contact.html" class="btn-nav btn-secondary">تماس با ما</a>
+            </div>
+            
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>منابع فنی تخصصی</h1>
+        <p>دسترسی به ماشین‌حساب‌ها، پایگاه داده تجهیزات و ابزارهای مهندسی</p>
+        <div class="hero-cta">
+            <a href="technical-login.html" class="hero-btn hero-btn-white">ورود به سیستم</a>
+            <a href="register.html" class="hero-btn hero-btn-outline">ثبت‌نام رایگان</a>
+        </div>
+    </section>
+    
+    <!-- Access Levels -->
+    <section class="access-section">
+        <div class="section-header">
+            <h2>سطوح دسترسی</h2>
+            <p>انتخاب بسته مناسب برای نیازهای شما</p>
+        </div>
+        
+        <div class="access-grid">
+            <!-- Basic Access -->
+            <div class="access-card">
+                <span class="access-badge badge-basic">پایه</span>
+                <h3>دسترسی رایگان</h3>
+                <div class="access-price">رایگان</div>
+                <p>برای شروع و آشنایی با امکانات</p>
+                <ul class="access-features">
+                    <li>ماشین‌حساب‌های پایه</li>
+                    <li>مشاهده مقالات عمومی</li>
+                    <li>دسترسی به استانداردهای عمومی</li>
+                    <li>دریافت خبرنامه هفتگی</li>
+                    <li>پشتیبانی ایمیلی</li>
+                </ul>
+                <a href="register.html" class="access-btn">ثبت‌نام رایگان</a>
+            </div>
+            
+            <!-- Premium Access -->
+            <div class="access-card premium">
+                <span class="access-badge badge-premium">⭐ پریمیوم</span>
+                <h3>دسترسی کامل</h3>
+                <div class="access-price premium-price">تماس بگیرید</div>
+                <p>برای استفاده حرفه‌ای و پروژه‌های واقعی</p>
+                <ul class="access-features">
+                    <li>تمام امکانات سطح پایه</li>
+                    <li>پایگاه داده کامل تجهیزات</li>
+                    <li>ماشین‌حساب‌های پیشرفته</li>
+                    <li>مطالعات موردی بین‌المللی</li>
+                    <li>مدل‌های اقتصادی و تحلیل ریسک</li>
+                    <li>اطلاعات تماس تامین‌کنندگان</li>
+                    <li>دانلود فایل‌های Excel</li>
+                    <li>پشتیبانی اختصاصی 24/7</li>
+                    <li>مشاوره تلفنی رایگان</li>
+                </ul>
+                <a href="contact.html" class="access-btn premium-btn">درخواست دسترسی پریمیوم</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Resources Grid -->
+    <section class="resources-section">
+        <div class="section-header">
+            <h2>منابع و ابزارها</h2>
+            <p>ابزارهای مهندسی برای محاسبات و تحلیل</p>
+        </div>
+        
+        <div class="resources-grid">
+            <!-- Calculator 1 -->
+            <div class="resource-card" onclick="window.location.href='technical-login.html'">
+                <div class="resource-icon">🧮</div>
+                <h3>ماشین‌حساب خردایش</h3>
+                <p>محاسبه ظرفیت، توان و اندازه‌گذاری سنگ‌شکن‌ها</p>
+                <span class="resource-badge free">رایگان</span>
+            </div>
+            
+            <!-- Calculator 2 -->
+            <div class="resource-card locked-overlay" onclick="window.location.href='register.html'">
+                <div class="resource-icon">📊</div>
+                <h3>تحلیل NPV و IRR</h3>
+                <p>محاسبه شاخص‌های اقتصادی پروژه‌های معدنی</p>
+                <span class="resource-badge">پریمیوم</span>
+            </div>
+            
+            <!-- Database 1 -->
+            <div class="resource-card" onclick="window.location.href='technical-login.html'">
+                <div class="resource-icon">📚</div>
+                <h3>پایگاه داده تجهیزات</h3>
+                <p>اطلاعات فنی و قیمت تجهیزات معدنی</p>
+                <span class="resource-badge free">رایگان (محدود)</span>
+            </div>
+            
+            <!-- Tool 1 -->
+            <div class="resource-card locked-overlay" onclick="window.location.href='register.html'">
+                <div class="resource-icon">⚙️</div>
+                <h3>انتخاب تجهیزات</h3>
+                <p>ابزار هوشمند انتخاب تجهیزات بر اساس پارامترها</p>
+                <span class="resource-badge">پریمیوم</span>
+            </div>
+            
+            <!-- Calculator 3 -->
+            <div class="resource-card" onclick="window.location.href='technical-login.html'">
+                <div class="resource-icon">🏭</div>
+                <h3>محاسبات فلوتاسیون</h3>
+                <p>طراحی و محاسبه مدار فلوتاسیون</p>
+                <span class="resource-badge free">رایگان</span>
+            </div>
+            
+            <!-- Tool 2 -->
+            <div class="resource-card locked-overlay" onclick="window.location.href='register.html'">
+                <div class="resource-icon">💰</div>
+                <h3>برآورد CAPEX & OPEX</h3>
+                <p>برآورد هزینه‌های سرمایه‌ای و عملیاتی</p>
+                <span class="resource-badge">پریمیوم</span>
+            </div>
+            
+            <!-- Standards -->
+            <div class="resource-card" onclick="window.location.href='technical-login.html'">
+                <div class="resource-icon">📋</div>
+                <h3>استانداردها</h3>
+                <p>دسترسی به استانداردهای AACE و SME</p>
+                <span class="resource-badge free">رایگان (محدود)</span>
+            </div>
+            
+            <!-- Case Studies -->
+            <div class="resource-card locked-overlay" onclick="window.location.href='register.html'">
+                <div class="resource-icon">📖</div>
+                <h3>مطالعات موردی</h3>
+                <p>مطالعات موردی پروژه‌های بین‌المللی</p>
+                <span class="resource-badge">پریمیوم</span>
+            </div>
+            
+            <!-- Vendor Database -->
+            <div class="resource-card locked-overlay" onclick="window.location.href='register.html'">
+                <div class="resource-icon">🤝</div>
+                <h3>پایگاه تامین‌کنندگان</h3>
+                <p>اطلاعات تماس و معرفی تامین‌کنندگان معتبر</p>
+                <span class="resource-badge">پریمیوم</span>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>آماده برای شروع هستید؟</h2>
+            <p>همین حالا ثبت‌نام کنید و از منابع فنی ما بهره‌مند شوید</p>
+            <a href="register.html" class="cta-btn">ثبت‌نام رایگان</a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>کاویان توسعه معدن</h3>
+                <p>مشاور تخصصی در زمینه مهندسی تجهیزات معدنی و اقتصاد معدن</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>دسترسی سریع</h3>
+                <a href="index.html">خانه</a>
+                <a href="about.html">درباره ما</a>
+                <a href="services.html">خدمات</a>
+                <a href="portfolio.html">نمونه کارها</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>خدمات</h3>
+                <a href="services/equipment-selection.html">انتخاب تجهیزات</a>
+                <a href="services/economic-analysis.html">تحلیل اقتصادی</a>
+                <a href="services/risk-analysis.html">تحلیل ریسک</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>تماس با ما</h3>
+                <p>📧 info@kdmine.com</p>
+                <p>📞 +98 21 1234 5678</p>
+                <p>📍 تهران، ایران</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 کاویان توسعه معدن. تمامی حقوق محفوظ است.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پایگاه داده تجهیزات | کاویان توسعه معدن</title>
+    <meta name="description" content="پایگاه جامع اطلاعات فنی و قیمت تجهیزات معدنی">
+    <link rel="icon" type="image/svg+xml" href="https://cdn.grapesjs.com/workspaces/cmgvbwak408ja13nsemkia83b/assets/7e057c43-5d96-4c3a-a8fc-8bd5f6589a93__kavianpremiumbadgelogo.svg">
+    
+    <style>
+        @font-face {
+            font-family: 'B Nazanin';
+            src: local('B Nazanin'), local('BNazanin');
+            font-display: swap;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'B Nazanin', Tahoma, sans-serif;
+            line-height: 1.8;
+            color: #1a202c;
+            background: #f8fafc;
+        }
+        
+        /* Top Bar */
+        .top-bar {
+            background: #1a202c;
+            color: white;
+            padding: 12px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .user-info span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .logout-btn {
+            background: #dc2626;
+            color: white;
+            padding: 6px 18px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .logout-btn:hover {
+            background: #b91c1c;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background: linear-gradient(135deg, #1e3a8a, #2563eb);
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            background: white;
+            padding: 5px;
+        }
+        
+        .logo-text h2 {
+            font-size: 1.4rem;
+            margin-bottom: 2px;
+        }
+        
+        .logo-text p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            opacity: 0.95;
+        }
+        
+        /* Search & Filter Section */
+        .search-section {
+            max-width: 1400px;
+            margin: -40px auto 0;
+            padding: 0 40px;
+            position: relative;
+            z-index: 100;
+        }
+        
+        .search-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .search-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr auto;
+            gap: 20px;
+            align-items: end;
+        }
+        
+        .search-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #1a202c;
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+        
+        .search-group input,
+        .search-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .search-group input:focus,
+        .search-group select:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        .search-btn {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-family: inherit;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .search-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
+        }
+        
+        /* Categories */
+        .categories-section {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 40px;
+        }
+        
+        .categories-grid {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .category-btn {
+            padding: 10px 25px;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 50px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: bold;
+            color: #4a5568;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .category-btn:hover,
+        .category-btn.active {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            border-color: #2563eb;
+            transform: translateY(-2px);
+        }
+        
+        /* Equipment Grid */
+        .equipment-section {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 40px 80px;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .section-header h2 {
+            font-size: 1.8rem;
+            color: #1a202c;
+        }
+        
+        .results-count {
+            color: #4a5568;
+            font-size: 1rem;
+        }
+        
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        
+        .equipment-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .equipment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            border-color: #2563eb;
+        }
+        
+        .equipment-image {
+            height: 200px;
+            background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+        }
+        
+        .equipment-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            padding: 6px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .equipment-content {
+            padding: 25px;
+        }
+        
+        .equipment-card h3 {
+            font-size: 1.4rem;
+            color: #1a202c;
+            margin-bottom: 10px;
+        }
+        
+        .equipment-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.85rem;
+            color: #4a5568;
+        }
+        
+        .equipment-card p {
+            color: #4a5568;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        .equipment-specs {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .spec-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .spec-row:last-child {
+            border-bottom: none;
+        }
+        
+        .spec-label {
+            color: #4a5568;
+            font-size: 0.9rem;
+        }
+        
+        .spec-value {
+            color: #1a202c;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .equipment-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #059669;
+            margin-bottom: 15px;
+        }
+        
+        .equipment-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .action-btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #2563eb;
+            border: 2px solid #2563eb;
+        }
+        
+        .btn-secondary:hover {
+            background: #2563eb;
+            color: white;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1a202c;
+            color: white;
+            padding: 60px 40px 30px;
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: #cbd5e0;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid #2d3748;
+            text-align: center;
+            color: #cbd5e0;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .search-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .equipment-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .categories-grid {
+                justify-content: center;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="user-info">
+            <span>👤 خوش آمدید، کاربر عزیز</span>
+            <span>📧 user@kdmine.com</span>
+        </div>
+        <a href="technical-login.html" class="logout-btn">خروج</a>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="https://cdn.grapesjs.com/workspaces/cmgvbwak408ja13nsemkia83b/assets/7e057c43-5d96-4c3a-a8fc-8bd5f6589a93__kavianpremiumbadgelogo.svg" alt="Kavian Logo">
+                <div class="logo-text">
+                    <h2>کاویان توسعه معدن</h2>
+                    <p>Kavian Development Mine</p>
+                </div>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="equipment.html">پایگاه تجهیزات</a></li>
+                <li><a href="#">ماشین‌حساب‌ها</a></li>
+                <li><a href="#">مطالعات موردی</a></li>
+                <li><a href="#">استانداردها</a></li>
+                <li><a href="#">پشتیبانی</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>پایگاه داده تجهیزات معدنی</h1>
+        <p>جامع‌ترین پایگاه اطلاعات فنی و قیمت تجهیزات معدنی و فرآوری</p>
+    </section>
+    
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="search-card">
+            <div class="search-grid">
+                <div class="search-group">
+                    <label>جستجو</label>
+                    <input type="text" placeholder="نام تجهیز، مدل یا سازنده...">
+                </div>
+                
+                <div class="search-group">
+                    <label>دسته‌بندی</label>
+                    <select>
+                        <option>همه دسته‌ها</option>
+                        <option>خردایش</option>
+                        <option>آسیاب</option>
+                        <option>فلوتاسیون</option>
+                        <option>جداسازی</option>
+                        <option>حمل‌ونقل</option>
+                    </select>
+                </div>
+                
+                <div class="search-group">
+                    <label>محدوده قیمت</label>
+                    <select>
+                        <option>همه قیمت‌ها</option>
+                        <option>زیر 100 هزار دلار</option>
+                        <option>100-500 هزار دلار</option>
+                        <option>500 هزار - 1 میلیون دلار</option>
+                        <option>بالای 1 میلیون دلار</option>
+                    </select>
+                </div>
+                
+                <button class="search-btn">جستجو</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Categories -->
+    <section class="categories-section">
+        <div class="categories-grid">
+            <button class="category-btn active">همه تجهیزات</button>
+            <button class="category-btn">سنگ‌شکن‌ها</button>
+            <button class="category-btn">آسیاب‌ها</button>
+            <button class="category-btn">فلوتاسیون</button>
+            <button class="category-btn">جداسازی مغناطیسی</button>
+            <button class="category-btn">غربال‌ها</button>
+            <button class="category-btn">پمپ‌ها</button>
+            <button class="category-btn">نوار نقاله</button>
+        </div>
+    </section>
+    
+    <!-- Equipment Grid -->
+    <section class="equipment-section">
+        <div class="section-header">
+            <h2>تجهیزات موجود</h2>
+            <span class="results-count">نمایش 156 تجهیز</span>
+        </div>
+        
+        <div class="equipment-grid">
+            <!-- Equipment 1 -->
+            <div class="equipment-card">
+                <div class="equipment-image">
+                    ⚙️
+                    <div class="equipment-badge">موجود</div>
+                </div>
+                <div class="equipment-content">
+                    <h3>سنگ‌شکن فکی PE-900×1200</h3>
+                    <div class="equipment-meta">
+                        <span>🏭 Metso</span>
+                        <span>📦 خردایش اولیه</span>
+                    </div>
+                    <p>سنگ‌شکن فکی با ظرفیت 180-350 تن در ساعت برای خردایش اولیه سنگ‌های سخت</p>
+                    
+                    <div class="equipment-specs">
+                        <div class="spec-row">
+                            <span class="spec-label">ظرفیت:</span>
+                            <span class="spec-value">180-350 TPH</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">توان موتور:</span>
+                            <span class="spec-value">110 kW</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">اندازه ورودی:</span>
+                            <span class="spec-value">900×1200 mm</span>
+                        </div>
+                    </div>
+                    
+                    <div class="equipment-price">$285,000</div>
+                    
+                    <div class="equipment-actions">
+                        <a href="#" class="action-btn btn-primary">جزئیات کامل</a>
+                        <a href="#" class="action-btn btn-secondary">درخواست قیمت</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Equipment 2 -->
+            <div class="equipment-card">
+                <div class="equipment-image">
+                    🔄
+                    <div class="equipment-badge">موجود</div>
+                </div>
+                <div class="equipment-content">
+                    <h3>آسیاب گلوله‌ای Ø3.6×6m</h3>
+                    <div class="equipment-meta">
+                        <span>🏭 FLSmidth</span>
+                        <span>📦 آسیاب</span>
+                    </div>
+                    <p>آسیاب گلوله‌ای با ظرفیت بالا برای آسیاب ثانویه و نهایی</p>
+                    
+                    <div class="equipment-specs">
+                        <div class="spec-row">
+                            <span class="spec-label">ظرفیت:</span>
+                            <span class="spec-value">25-30 TPH</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">توان موتور:</span>
+                            <span class="spec-value">800 kW</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">ابعاد:</span>
+                            <span class="spec-value">Ø3.6×6 m</span>
+                        </div>
+                    </div>
+                    
+                    <div class="equipment-price">$650,000</div>
+                    
+                    <div class="equipment-actions">
+                        <a href="#" class="action-btn btn-primary">جزئیات کامل</a>
+                        <a href="#" class="action-btn btn-secondary">درخواست قیمت</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Equipment 3 -->
+            <div class="equipment-card">
+                <div class="equipment-image">
+                    🌊
+                    <div class="equipment-badge">موجود</div>
+                </div>
+                <div class="equipment-content">
+                    <h3>سلول فلوتاسیون SF-16</h3>
+                    <div class="equipment-meta">
+                        <span>🏭 Outotec</span>
+                        <span>📦 فلوتاسیون</span>
+                    </div>
+                    <p>سلول فلوتاسیون مکانیکی با حجم 16 متر مکعب</p>
+                    
+                    <div class="equipment-specs">
+                        <div class="spec-row">
+                            <span class="spec-label">حجم:</span>
+                            <span class="spec-value">16 m³</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">توان موتور:</span>
+                            <span class="spec-value">30 kW</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">ظرفیت:</span>
+                            <span class="spec-value">8-16 m³/min</span>
+                        </div>
+                    </div>
+                    
+                    <div class="equipment-price">$95,000</div>
+                    
+                    <div class="equipment-actions">
+                        <a href="#" class="action-btn btn-primary">جزئیات کامل</a>
+                        <a href="#" class="action-btn btn-secondary">درخواست قیمت</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Equipment 4 -->
+            <div class="equipment-card">
+                <div class="equipment-image">
+                    🧲
+                    <div class="equipment-badge">موجود</div>
+                </div>
+                <div class="equipment-content">
+                    <h3>جداساز مغناطیسی CTB-1024</h3>
+                    <div class="equipment-meta">
+                        <span>🏭 Eriez</span>
+                        <span>📦 جداسازی</span>
+                    </div>
+                    <p>جداساز مغناطیسی دائم با شدت میدان بالا</p>
+                    
+                    <div class="equipment-specs">
+                        <div class="spec-row">
+                            <span class="spec-label">ظرفیت:</span>
+                            <span class="spec-value">50-100 TPH</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">شدت میدان:</span>
+                            <span class="spec-value">1200 Gauss</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">ابعاد:</span>
+                            <span class="spec-value">1000×2400 mm</span>
+                        </div>
+                    </div>
+                    
+                    <div class="equipment-price">$125,000</div>
+                    
+                    <div class="equipment-actions">
+                        <a href="#" class="action-btn btn-primary">جزئیات کامل</a>
+                        <a href="#" class="action-btn btn-secondary">درخواست قیمت</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Equipment 5 -->
+            <div class="equipment-card">
+                <div class="equipment-image">
+                    📏
+                    <div class="equipment-badge">موجود</div>
+                </div>
+                <div class="equipment-content">
+                    <h3>غربال ارتعاشی YK2460</h3>
+                    <div class="equipment-meta">
+                        <span>🏭 Sandvik</span>
+                        <span>📦 غربال‌گری</span>
+                    </div>
+                    <p>غربال ارتعاشی دو عرشه با ظرفیت بالا</p>
+                    
+                    <div class="equipment-specs">
+                        <div class="spec-row">
+                            <span class="spec-label">ظرفیت:</span>
+                            <span class="spec-value">200-400 TPH</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">توان موتور:</span>
+                            <span class="spec-value">22 kW</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">ابعاد:</span>
+                            <span class="spec-value">2400×6000 mm</span>
+                        </div>
+                    </div>
+                    
+                    <div class="equipment-price">$78,000</div>
+                    
+                    <div class="equipment-actions">
+                        <a href="#" class="action-btn btn-primary">جزئیات کامل</a>
+                        <a href="#" class="action-btn btn-secondary">درخواست قیمت</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Equipment 6 -->
+            <div class="equipment-card">
+                <div class="equipment-image">
+                    💧
+                    <div class="equipment-badge">موجود</div>
+                </div>
+                <div class="equipment-content">
+                    <h3>پمپ لجن ZJ-I-A100</h3>
+                    <div class="equipment-meta">
+                        <span>🏭 Weir Minerals</span>
+                        <span>📦 پمپاژ</span>
+                    </div>
+                    <p>پمپ لجن با مقاومت بالا در برابر سایش</p>
+                    
+                    <div class="equipment-specs">
+                        <div class="spec-row">
+                            <span class="spec-label">دبی:</span>
+                            <span class="spec-value">400 m³/h</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">ارتفاع:</span>
+                            <span class="spec-value">45 m</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">توان موتور:</span>
+                            <span class="spec-value">110 kW</span>
+                        </div>
+                    </div>
+                    
+                    <div class="equipment-price">$52,000</div>
+                    
+                    <div class="equipment-actions">
+                        <a href="#" class="action-btn btn-primary">جزئیات کامل</a>
+                        <a href="#" class="action-btn btn-secondary">درخواست قیمت</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>کاویان توسعه معدن</h3>
+                <p>مشاور تخصصی در زمینه مهندسی تجهیزات معدنی و اقتصاد معدن</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>دسترسی سریع</h3>
+                <a href="index.html">خانه</a>
+                <a href="about.html">درباره ما</a>
+                <a href="services.html">خدمات</a>
+                <a href="portfolio.html">نمونه کارها</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>منابع فنی</h3>
+                <a href="equipment.html">پایگاه تجهیزات</a>
+                <a href="#">ماشین‌حساب‌ها</a>
+                <a href="#">مطالعات موردی</a>
+                <a href="#">استانداردها</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>تماس با ما</h3>
+                <p>📧 info@kdmine.com</p>
+                <p>📞 +98 21 1234 5678</p>
+                <p>📍 تهران، ایران</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 کاویان توسعه معدن. تمامی حقوق محفوظ است.</p>
+        </div>
+    </footer>
+</body>
+</html>

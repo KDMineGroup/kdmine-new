@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحلیل اقتصادی و سناریوپردازی | کاویان توسعه معدن</title>
+    <meta name="description" content="تحلیل اقتصادی جامع و سناریوپردازی برای انتخاب بهترین گزینه سرمایه‌گذاری">
+    <link rel="icon" type="image/svg+xml" href="https://cdn.grapesjs.com/workspaces/cmgvbwak408ja13nsemkia83b/assets/7e057c43-5d96-4c3a-a8fc-8bd5f6589a93__kavianpremiumbadgelogo.svg">
+    
+    <style>
+        @font-face {
+            font-family: 'B Nazanin';
+            src: local('B Nazanin'), local('BNazanin');
+            font-display: swap;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'B Nazanin', Tahoma, sans-serif;
+            line-height: 1.8;
+            color: #1a202c;
+            background: #ffffff;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #15803d, #22c55e);
+            color: white;
+            padding: 100px 40px 60px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .header p {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .breadcrumb {
+            margin-top: 30px;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+        
+        .section-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-intro h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: #1a202c;
+            margin-bottom: 20px;
+        }
+        
+        .section-intro p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: #4a5568;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+        
+        .service-card {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            padding: 35px;
+            border-radius: 15px;
+            border: 2px solid #bbf7d0;
+            transition: all 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(34, 197, 94, 0.2);
+            border-color: #22c55e;
+        }
+        
+        .service-icon {
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, #22c55e, #4ade80);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 20px rgba(34, 197, 94, 0.3);
+        }
+        
+        .service-card h3 {
+            font-size: 1.4rem;
+            color: #1a202c;
+            margin-bottom: 15px;
+        }
+        
+        .service-card p {
+            color: #4a5568;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        .service-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .service-card li {
+            padding: 8px 0;
+            padding-right: 25px;
+            position: relative;
+            color: #4a5568;
+            font-size: 0.95rem;
+        }
+        
+        .service-card li::before {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            color: #22c55e;
+            font-weight: bold;
+        }
+        
+        .indicators-section {
+            background: #f8fafc;
+            padding: 80px 40px;
+        }
+        
+        .indicators-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .indicator-card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .indicator-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .indicator-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .indicator-card h4 {
+            font-size: 1.3rem;
+            color: #1a202c;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .indicator-card p {
+            color: #4a5568;
+            line-height: 1.7;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+        
+        .scenarios-section {
+            background: white;
+            padding: 80px 40px;
+        }
+        
+        .scenarios-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .scenario-card {
+            background: #f8fafc;
+            padding: 35px;
+            border-radius: 15px;
+            border: 2px solid #e2e8f0;
+        }
+        
+        .scenario-card h4 {
+            font-size: 1.3rem;
+            color: #1a202c;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .scenario-card h4 span {
+            font-size: 1.8rem;
+        }
+        
+        .scenario-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .scenario-card li {
+            padding: 8px 0;
+            padding-right: 22px;
+            position: relative;
+            color: #4a5568;
+            font-size: 0.95rem;
+        }
+        
+        .scenario-card li::before {
+            content: '→';
+            position: absolute;
+            right: 0;
+            color: #22c55e;
+            font-weight: bold;
+        }
+        
+        .methods-section {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            padding: 80px 40px;
+        }
+        
+        .methods-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .method-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .method-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .method-card h4 {
+            font-size: 1.2rem;
+            color: #1a202c;
+            margin-bottom: 10px;
+        }
+        
+        .method-card p {
+            color: #4a5568;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .deliverables-section {
+            background: white;
+            padding: 80px 40px;
+        }
+        
+        .deliverables-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .deliverable-card {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #bbf7d0;
+        }
+        
+        .deliverable-card h4 {
+            font-size: 1.2rem;
+            color: #1a202c;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .deliverable-card h4 span {
+            font-size: 1.5rem;
+        }
+        
+        .deliverable-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .deliverable-card li {
+            padding: 6px 0;
+            padding-right: 20px;
+            position: relative;
+            color: #4a5568;
+            font-size: 0.9rem;
+        }
+        
+        .deliverable-card li::before {
+            content: '•';
+            position: absolute;
+            right: 0;
+            color: #22c55e;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #15803d, #22c55e);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 18px 45px;
+            background: white;
+            color: #22c55e;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 80px 25px 50px;
+            }
+            
+            .content-section,
+            .indicators-section,
+            .scenarios-section,
+            .methods-section,
+            .deliverables-section {
+                padding: 60px 25px;
+            }
+            
+            .services-grid,
+            .indicators-grid,
+            .scenarios-grid,
+            .methods-grid,
+            .deliverables-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>تحلیل اقتصادی و سناریوپردازی</h1>
+        <p>تحلیل اقتصادی جامع و سناریوپردازی برای تصمیم‌گیری بهینه</p>
+        <div class="breadcrumb">
+            <a href="../index.html">خانه</a> / <a href="../services.html">خدمات</a> / تحلیل اقتصادی
+        </div>
+    </header>
+    
+    <section class="content-section">
+        <div class="section-intro">
+            <h2>خدمات تحلیل اقتصادی</h2>
+            <p>ارزیابی جامع اقتصادی پروژه‌های معدنی و صنعتی</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">💰</div>
+                <h3>برآورد هزینه‌ها</h3>
+                <p>محاسبه دقیق هزینه‌های سرمایه‌ای و عملیاتی</p>
+                <ul>
+                    <li>برآورد CAPEX (هزینه‌های سرمایه‌ای)</li>
+                    <li>محاسبه OPEX (هزینه‌های عملیاتی)</li>
+                    <li>هزینه‌های نگهداری و تعمیرات</li>
+                    <li>هزینه‌های مالی و اداری</li>
+                    <li>هزینه‌های محیط زیستی</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>مدل‌سازی مالی</h3>
+                <p>ایجاد مدل‌های مالی جامع و دقیق</p>
+                <ul>
+                    <li>مدل جریان نقدی</li>
+                    <li>صورت‌های مالی پیش‌بینی</li>
+                    <li>تحلیل سود و زیان</li>
+                    <li>ترازنامه پیش‌بینی</li>
+                    <li>نسبت‌های مالی</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">📈</div>
+                <h3>ارزیابی سرمایه‌گذاری</h3>
+                <p>تحلیل بازدهی و جذابیت سرمایه‌گذاری</p>
+                <ul>
+                    <li>محاسبه NPV (ارزش فعلی خالص)</li>
+                    <li>محاسبه IRR (نرخ بازده داخلی)</li>
+                    <li>دوره بازگشت سرمایه</li>
+                    <li>شاخص سودآوری</li>
+                    <li>نقطه سربه‌سر</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3>تحلیل حساسیت</h3>
+                <p>بررسی تاثیر تغییر پارامترها</p>
+                <ul>
+                    <li>تحلیل حساسیت تک‌متغیره</li>
+                    <li>تحلیل حساسیت چندمتغیره</li>
+                    <li>نمودارهای عنکبوتی</li>
+                    <li>نمودارهای گردباد</li>
+                    <li>شناسایی پارامترهای حساس</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🔮</div>
+                <h3>سناریوپردازی</h3>
+                <p>تحلیل سناریوهای مختلف</p>
+                <ul>
+                    <li>سناریوی خوش‌بینانه</li>
+                    <li>سناریوی واقع‌گرایانه</li>
+                    <li>سناریوی بدبینانه</li>
+                    <li>سناریوهای ترکیبی</li>
+                    <li>تحلیل احتمالاتی</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">⚖️</div>
+                <h3>مقایسه گزینه‌ها</h3>
+                <p>مقایسه اقتصادی گزینه‌های مختلف</p>
+                <ul>
+                    <li>مقایسه تکنولوژی‌ها</li>
+                    <li>مقایسه ظرفیت‌ها</li>
+                    <li>مقایسه استراتژی‌های توسعه</li>
+                    <li>تحلیل trade-off</li>
+                    <li>رتبه‌بندی گزینه‌ها</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section class="indicators-section">
+        <div class="section-intro">
+            <h2>شاخص‌های اقتصادی</h2>
+            <p>معیارهای کلیدی ارزیابی پروژه</p>
+        </div>
+        
+        <div class="indicators-grid">
+            <div class="indicator-card">
+                <div class="indicator-icon">💎</div>
+                <h4>NPV</h4>
+                <p>ارزش فعلی خالص - معیار اصلی سودآوری پروژه با در نظر گرفتن ارزش زمانی پول</p>
+            </div>
+            
+            <div class="indicator-card">
+                <div class="indicator-icon">📊</div>
+                <h4>IRR</h4>
+                <p>نرخ بازده داخلی - نرخ تنزیلی که NPV را صفر می‌کند و نشان‌دهنده بازدهی پروژه است</p>
+            </div>
+            
+            <div class="indicator-card">
+                <div class="indicator-icon">⏱️</div>
+                <h4>Payback Period</h4>
+                <p>دوره بازگشت سرمایه - زمان لازم برای بازگشت سرمایه اولیه از طریق جریان‌های نقدی</p>
+            </div>
+            
+            <div class="indicator-card">
+                <div class="indicator-icon">📈</div>
+                <h4>PI</h4>
+                <p>شاخص سودآوری - نسبت ارزش فعلی جریان‌های نقدی به سرمایه‌گذاری اولیه</p>
+            </div>
+            
+            <div class="indicator-card">
+                <div class="indicator-icon">🎯</div>
+                <h4>Break-Even</h4>
+                <p>نقطه سربه‌سر - سطح تولید یا قیمتی که درآمد برابر هزینه‌ها می‌شود</p>
+            </div>
+            
+            <div class="indicator-card">
+                <div class="indicator-icon">💰</div>
+                <h4>ROI</h4>
+                <p>بازده سرمایه‌گذاری - نسبت سود خالص به سرمایه‌گذاری کل</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="scenarios-section">
+        <div class="section-intro">
+            <h2>انواع سناریوها</h2>
+            <p>تحلیل شرایط مختلف اقتصادی</p>
+        </div>
+        
+        <div class="scenarios-grid">
+            <div class="scenario-card">
+                <h4><span>📈</span>سناریوی خوش‌بینانه</h4>
+                <ul>
+                    <li>قیمت محصول بالاتر از پیش‌بینی</li>
+                    <li>هزینه‌های عملیاتی کمتر</li>
+                    <li>بازدهی بالاتر از انتظار</li>
+                    <li>تقاضای قوی بازار</li>
+                    <li>شرایط اقتصادی مساعد</li>
+                </ul>
+            </div>
+            
+            <div class="scenario-card">
+                <h4><span>📊</span>سناریوی واقع‌گرایانه</h4>
+                <ul>
+                    <li>قیمت‌های متوسط تاریخی</li>
+                    <li>هزینه‌های استاندارد صنعت</li>
+                    <li>بازدهی طبق طراحی</li>
+                    <li>تقاضای پایدار بازار</li>
+                    <li>شرایط عادی اقتصادی</li>
+                </ul>
+            </div>
+            
+            <div class="scenario-card">
+                <div class="scenario-card">
+                <h4><span>📉</span>سناریوی بدبینانه</h4>
+                <ul>
+                    <li>قیمت محصول پایین‌تر از انتظار</li>
+                    <li>هزینه‌های عملیاتی بالاتر</li>
+                    <li>بازدهی کمتر از طراحی</li>
+                    <li>رکود بازار</li>
+                    <li>شرایط اقتصادی نامساعد</li>
+                </ul>
+            </div>
+            
+            <div class="scenario-card">
+                <h4><span>🔄</span>سناریوهای ترکیبی</h4>
+                <ul>
+                    <li>تغییرات قیمت در طول زمان</li>
+                    <li>تاثیر تورم</li>
+                    <li>تغییرات نرخ ارز</li>
+                    <li>توسعه مرحله‌ای</li>
+                    <li>تغییرات تکنولوژی</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section class="methods-section">
+        <div class="section-intro">
+            <h2>روش‌های تحلیل</h2>
+            <p>تکنیک‌های پیشرفته تحلیل اقتصادی</p>
+        </div>
+        
+        <div class="methods-grid">
+            <div class="method-card">
+                <div class="method-icon">📊</div>
+                <h4>DCF</h4>
+                <p>تحلیل جریان نقدی تنزیل شده</p>
+            </div>
+            
+            <div class="method-card">
+                <div class="method-icon">🎲</div>
+                <h4>Monte Carlo</h4>
+                <p>شبیه‌سازی احتمالاتی</p>
+            </div>
+            
+            <div class="method-card">
+                <div class="method-icon">🌳</div>
+                <h4>Decision Tree</h4>
+                <p>درخت تصمیم‌گیری</p>
+            </div>
+            
+            <div class="method-card">
+                <div class="method-icon">📈</div>
+                <h4>Real Options</h4>
+                <p>تحلیل اختیارات واقعی</p>
+            </div>
+            
+            <div class="method-card">
+                <div class="method-icon">⚖️</div>
+                <h4>Cost-Benefit</h4>
+                <p>تحلیل هزینه-فایده</p>
+            </div>
+            
+            <div class="method-card">
+                <div class="method-icon">🎯</div>
+                <h4>Sensitivity</h4>
+                <p>تحلیل حساسیت</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="deliverables-section">
+        <div class="section-intro">
+            <h2>خروجی‌های تحلیل</h2>
+            <p>مستندات و گزارش‌های ارائه شده</p>
+        </div>
+        
+        <div class="deliverables-grid">
+            <div class="deliverable-card">
+                <h4><span>📄</span>گزارش اقتصادی جامع</h4>
+                <ul>
+                    <li>خلاصه اجرایی</li>
+                    <li>فرضیات و مبانی</li>
+                    <li>تحلیل‌های تفصیلی</li>
+                    <li>نتیجه‌گیری و توصیه‌ها</li>
+                </ul>
+            </div>
+            
+            <div class="deliverable-card">
+                <h4><span>📊</span>مدل مالی Excel</h4>
+                <ul>
+                    <li>مدل قابل ویرایش</li>
+                    <li>داشبورد تعاملی</li>
+                    <li>نمودارها و جداول</li>
+                    <li>تحلیل حساسیت</li>
+                </ul>
+            </div>
+            
+            <div class="deliverable-card">
+                <h4><span>📈</span>نمودارها و جداول</h4>
+                <ul>
+                    <li>جریان نقدی</li>
+                    <li>نمودارهای حساسیت</li>
+                    <li>مقایسه سناریوها</li>
+                    <li>شاخص‌های کلیدی</li>
+                </ul>
+            </div>
+            
+            <div class="deliverable-card">
+                <h4><span>🎯</span>تحلیل ریسک</h4>
+                <ul>
+                    <li>شناسایی ریسک‌ها</li>
+                    <li>ارزیابی کمی</li>
+                    <li>استراتژی‌های کاهش</li>
+                    <li>برنامه مدیریت ریسک</li>
+                </ul>
+            </div>
+            
+            <div class="deliverable-card">
+                <h4><span>💡</span>توصیه‌های استراتژیک</h4>
+                <ul>
+                    <li>بهترین گزینه سرمایه‌گذاری</li>
+                    <li>استراتژی اجرا</li>
+                    <li>برنامه تامین مالی</li>
+                    <li>نقشه راه پروژه</li>
+                </ul>
+            </div>
+            
+            <div class="deliverable-card">
+                <h4><span>📋</span>ارائه مدیریتی</h4>
+                <ul>
+                    <li>پاورپوینت خلاصه</li>
+                    <li>یافته‌های کلیدی</li>
+                    <li>توصیه‌های عملیاتی</li>
+                    <li>مسیر پیش رو</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section">
+        <h2>نیاز به تحلیل اقتصادی دارید؟</h2>
+        <p>با ما تماس بگیرید و تصمیم‌گیری آگاهانه‌تری داشته باشید</p>
+        <a href="../contact.html" class="cta-button">درخواست تحلیل اقتصادی</a>
+    </section>
+</body>
+</html>

@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>وبلاگ | کاویان توسعه معدن</title>
+    <meta name="description" content="مقالات تخصصی در زمینه مهندسی معدن، تجهیزات و تحلیل اقتصادی">
+    <link rel="icon" type="image/svg+xml" href="https://cdn.grapesjs.com/workspaces/cmgvbwak408ja13nsemkia83b/assets/7e057c43-5d96-4c3a-a8fc-8bd5f6589a93__kavianpremiumbadgelogo.svg">
+    
+    <style>
+        @font-face {
+            font-family: 'B Nazanin';
+            src: local('B Nazanin'), local('BNazanin');
+            font-display: swap;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'B Nazanin', Tahoma, sans-serif;
+            line-height: 1.8;
+            color: #1a202c;
+            background: #ffffff;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background: linear-gradient(135deg, #1e3a8a, #2563eb);
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            background: white;
+            padding: 5px;
+        }
+        
+        .logo-text h2 {
+            font-size: 1.4rem;
+            margin-bottom: 2px;
+        }
+        
+        .logo-text p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 600;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        
+        .nav-cta {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn-nav {
+            padding: 10px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: #2563eb;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255,255,255,0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: #2563eb;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 100px 40px 80px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .hero p {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Search Section */
+        .search-section {
+            background: #f8fafc;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 18px 60px 18px 25px;
+            border: 3px solid #e2e8f0;
+            border-radius: 50px;
+            font-family: inherit;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        .search-btn {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .search-btn:hover {
+            transform: translateY(-50%) scale(1.05);
+        }
+        
+        /* Categories */
+        .categories-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 40px 40px;
+        }
+        
+        .categories-grid {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .category-btn {
+            padding: 12px 30px;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 50px;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #4a5568;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .category-btn:hover,
+        .category-btn.active {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            border-color: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+        }
+        
+        /* Blog Grid */
+        .blog-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 40px 80px;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 35px;
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border: 3px solid transparent;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            border-color: #2563eb;
+        }
+        
+        .blog-image {
+            height: 220px;
+            background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+        }
+        
+        .blog-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        
+        .blog-content {
+            padding: 30px;
+        }
+        
+        .blog-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #4a5568;
+        }
+        
+        .blog-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .blog-card h3 {
+            font-size: 1.5rem;
+            color: #1a202c;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+        
+        .blog-card p {
+            color: #4a5568;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .blog-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        .tag {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        
+        .blog-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .blog-link:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
+        }
+        
+        /* Sidebar */
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 40px;
+        }
+        
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+        
+        .sidebar-widget {
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .sidebar-widget h3 {
+            font-size: 1.3rem;
+            color: #1a202c;
+            margin-bottom: 20px;
+        }
+        
+        .popular-post {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .popular-post:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .popular-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #2563eb, #60a5fa);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .popular-content h4 {
+            font-size: 1rem;
+            color: #1a202c;
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+        
+        .popular-content p {
+            font-size: 0.85rem;
+            color: #4a5568;
+        }
+        
+        .tag-cloud {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .tag-cloud .tag {
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .tag-cloud .tag:hover {
+            background: #2563eb;
+            color: white;
+        }
+        
+        /* Newsletter */
+        .newsletter-widget {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+        }
+        
+        .newsletter-widget h3 {
+            color: white;
+        }
+        
+        .newsletter-widget p {
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+        
+        .newsletter-form input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-family: inherit;
+            margin-bottom: 10px;
+        }
+        
+        .newsletter-form button {
+            width: 100%;
+            padding: 12px;
+            background: white;
+            color: #2563eb;
+            border: none;
+            border-radius: 8px;
+            font-family: inherit;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .newsletter-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1a202c;
+            color: white;
+            padding: 60px 40px 30px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: #cbd5e0;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid #2d3748;
+            text-align: center;
+            color: #cbd5e0;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links, .nav-cta {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                position: static;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                padding: 80px 25px 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="https://cdn.grapesjs.com/workspaces/cmgvbwak408ja13nsemkia83b/assets/7e057c43-5d96-4c3a-a8fc-8bd5f6589a93__kavianpremiumbadgelogo.svg" alt="Kavian Logo">
+                <div class="logo-text">
+                    <h2>کاویان توسعه معدن</h2>
+                    <p>Kavian Development Mine</p>
+                </div>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">خانه</a></li>
+                <li><a href="about.html">درباره ما</a></li>
+                <li><a href="services.html">خدمات</a></li>
+                <li><a href="portfolio.html">نمونه کارها</a></li>
+                <li><a href="blog.html">وبلاگ</a></li>
+            </ul>
+            
+            <div class="nav-cta">
+                <a href="register.html" class="btn-nav btn-primary">ثبت‌نام</a>
+                <a href="contact.html" class="btn-nav btn-secondary">تماس با ما</a>
+            </div>
+            
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>وبلاگ تخصصی</h1>
+        <p>مقالات و مطالب آموزشی در زمینه مهندسی معدن و تجهیزات</p>
+    </section>
+    
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="جستجو در مقالات...">
+            <button class="search-btn">جستجو</button>
+        </div>
+    </section>
+    
+    <!-- Categories -->
+    <section class="categories-section">
+        <div class="categories-grid">
+            <button class="category-btn active">همه مقالات</button>
+            <button class="category-btn">تجهیزات معدنی</button>
+            <button class="category-btn">تحلیل اقتصادی</button>
+            <button class="category-btn">فرآوری مواد معدنی</button>
+            <button class="category-btn">مدیریت پروژه</button>
+            <button class="category-btn">تکنولوژی</button>
+        </div>
+    </section>
+    
+    <!-- Content Wrapper -->
+    <div class="content-wrapper">
+        <!-- Main Content -->
+        <div class="blog-section">
+            <div class="blog-grid">
+                <!-- Blog Post 1 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        ⚙️
+                        <div class="blog-badge">جدید</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>📅 15 دی 1403</span>
+                            <span>👤 دکتر احمد رضایی</span>
+                            <span>⏱️ 8 دقیقه</span>
+                        </div>
+                        <h3>راهنمای انتخاب سنگ‌شکن مناسب برای معادن</h3>
+                        <p>انتخاب سنگ‌شکن مناسب یکی از مهم‌ترین تصمیمات در طراحی کارخانه فرآوری است. در این مقاله به بررسی انواع سنگ‌شکن‌ها و معیارهای انتخاب می‌پردازیم.</p>
+                        <div class="blog-tags">
+                            <span class="tag">خردایش</span>
+                            <span class="tag">تجهیزات</span>
+                            <span class="tag">طراحی</span>
+                        </div>
+                        <a href="#" class="blog-link">ادامه مطلب →</a>
+                    </div>
+                </article>
+                
+                <!-- Blog Post 2 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        💰
+                        <div class="blog-badge">محبوب</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>📅 10 دی 1403</span>
+                            <span>👤 دکتر سارا احمدی</span>
+                            <span>⏱️ 12 دقیقه</span>
+                        </div>
+                        <h3>روش‌های تحلیل اقتصادی پروژه‌های معدنی</h3>
+                        <p>تحلیل اقتصادی صحیح پیش‌نیاز موفقیت هر پروژه معدنی است. در این مقاله به معرفی روش‌های NPV، IRR و دوره بازگشت سرمایه می‌پردازیم.</p>
+                        <div class="blog-tags">
+                            <span class="tag">اقتصاد</span>
+                            <span class="tag">NPV</span>
+                            <span class="tag">IRR</span>
+                        </div>
+                        <a href="#" class="blog-link">ادامه مطلب →</a>
+                    </div>
+                </article>
+                
+                <!-- Blog Post 3 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        🏭
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>📅 5 دی 1403</span>
+                            <span>👤 مهندس محمد کریمی</span>
+                            <span>⏱️ 10 دقیقه</span>
+                        </div>
+                        <h3>بهینه‌سازی مدار فلوتاسیون در کارخانجات تغلیظ</h3>
+                        <p>فلوتاسیون یکی از مهم‌ترین فرآیندهای جداسازی در صنعت معدن است. در این مقاله به روش‌های بهینه‌سازی این فرآیند می‌پردازیم.</p>
+                        <div class="blog-tags">
+                            <span class="tag">فلوتاسیون</span>
+                            <span class="tag">بهینه‌سازی</span>
+                            <span class="tag">تغلیظ</span>
+                        </div>
+                        <a href="#" class="blog-link">ادامه مطلب →</a>
+                    </div>
+                </article>
+                
+                <!-- Blog Post 4 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        🔬
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>📅 1 دی 1403</span>
+                            <span>👤 دکتر احمد رضایی</span>
+                            <span>⏱️ 15 دقیقه</span>
+                        </div>
+                        <h3>تکنولوژی‌های نوین در استخراج طلا</h3>
+                        <p>صنعت استخراج طلا شاهد پیشرفت‌های چشمگیری در سال‌های اخیر بوده است. در این مقاله به معرفی جدیدترین تکنولوژی‌ها می‌پردازیم.</p>
+                        <div class="blog-tags">
+                            <span class="tag">طلا</span>
+                            <span class="tag">تکنولوژی</span>
+                            <span class="tag">نوآوری</span>
+                        </div>
+                        <a href="#" class="blog-link">ادامه مطلب →</a>
+                    </div>
+                </article>
+                
+                <!-- Blog Post 5 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        🛡️
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>📅 25 آذر 1403</span>
+                            <span>👤 مهندس علی محمدی</span>
+                            <span>⏱️ 9 دقیقه</span>
+                        </div>
+                        <h3>مدیریت ریسک در پروژه‌های معدنی</h3>
+                        <p>شناسایی و مدیریت ریسک‌ها نقش کلیدی در موفقیت پروژه‌های معدنی دارد. در این مقاله به روش‌های عملی مدیریت ریسک می‌پردازیم.</p>
+                        <div class="blog-tags">
+                            <span class="tag">ریسک</span>
+                            <span class="tag">مدیریت</span>
+                            <span class="tag">پروژه</span>
+                        </div>
+                        <a href="#" class="blog-link">ادامه مطلب →</a>
+                    </div>
+                </article>
+                
+                <!-- Blog Post 6 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        ⚗️
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>📅 20 آذر 1403</span>
+                            <span>👤 مهندس محمد کریمی</span>
+                            <span>⏱️ 11 دقیقه</span>
+                        </div>
+                        <h3>اصول طراحی سیستم‌های لیچینگ</h3>
+                        <p>لیچینگ یکی از روش‌های مهم استخراج فلزات است. در این مقاله به اصول طراحی و بهینه‌سازی سیستم‌های لیچینگ می‌پردازیم.</p>
+                        <div class="blog-tags">
+                            <span class="tag">لیچینگ</span>
+                            <span class="tag">طراحی</span>
+                            <span class="tag">استخراج</span>
+                        </div>
+                        <a href="#" class="blog-link">ادامه مطلب →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+        
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Popular Posts -->
+            <div class="sidebar-widget">
+                <h3>محبوب‌ترین مقالات</h3>
+                
+                <div class="popular-post">
+                    <div class="popular-icon">📊</div>
+                    <div class="popular-content">
+                        <h4>محاسبه NPV در پروژه‌های معدنی</h4>
+                        <p>15 دی 1403</p>
+                    </div>
+                </div>
+                
+                <div class="popular-post">
+                    <div class="popular-icon">⚙️</div>
+                    <div class="popular-content">
+                        <h4>انتخاب تجهیزات خردایش</h4>
+                        <p>10 دی 1403</p>
+                    </div>
+                </div>
+                
+                <div class="popular-post">
+                    <div class="popular-icon">🏭</div>
+                    <div class="popular-content">
+                        <h4>طراحی کارخانه تغلیظ</h4>
+                        <p>5 دی 1403</p>
+                    </div>
+                </div>
+                
+                <div class="popular-post">
+                    <div class="popular-icon">💎</div>
+                    <div class="popular-content">
+                        <h4>استخراج طلا با روش CIL</h4>
+                        <p>1 دی 1403</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tags -->
+            <div class="sidebar-widget">
+                <h3>برچسب‌ها</h3>
+                <div class="tag-cloud">
+                    <span class="tag">خردایش</span>
+                    <span class="tag">فلوتاسیون</span>
+                    <span class="tag">لیچینگ</span>
+                    <span class="tag">NPV</span>
+                    <span class="tag">IRR</span>
+                    <span class="tag">تحلیل ریسک</span>
+                    <span class="tag">طراحی</span>
+                    <span class="tag">بهینه‌سازی</span>
+                    <span class="tag">تجهیزات</span>
+                    <span class="tag">اقتصاد</span>
+                </div>
+            </div>
+            
+            <!-- Newsletter -->
+            <div class="sidebar-widget newsletter-widget">
+                <h3>خبرنامه</h3>
+                <p>برای دریافت جدیدترین مقالات عضو خبرنامه شوید</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="ایمیل شما" required>
+                    <button type="submit">عضویت</button>
+                </form>
+            </div>
+        </aside>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>کاویان توسعه معدن</h3>
+                <p>مشاور تخصصی در زمینه مهندسی تجهیزات معدنی و اقتصاد معدن</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>دسترسی سریع</h3>
+                <a href="index.html">خانه</a>
+                <a href="about.html">درباره ما</a>
+                <a href="services.html">خدمات</a>
+                <a href="portfolio.html">نمونه کارها</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>خدمات</h3>
+                <a href="services/equipment-selection.html">انتخاب تجهیزات</a>
+                <a href="services/economic-analysis.html">تحلیل اقتصادی</a>
+                <a href="services/risk-analysis.html">تحلیل ریسک</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>تماس با ما</h3>
+                <p>📧 info@kdmine.com</p>
+                <p>📞 +98 21 1234 5678</p>
+                <p>📍 تهران، ایران</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 کاویان توسعه معدن. تمامی حقوق محفوظ است.</p>
+        </div>
+    </footer>
+</body>
+</html>
